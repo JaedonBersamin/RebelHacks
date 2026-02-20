@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "eventName": "UNLV Tango Salsa Club",
+      "coolFactor": "Learn Partner Dance Socially",
+      "description": "The club brings the joy of social partner dancing to UNLV through tango and salsa classes, social dance events, and performances. All skill levels are welcome in a safe and friendly environment.",
+      "locationName": "Student Wellness & Recreation Center",
+      "time": "Jan 25 at 4:30 PM"
+    },
+    {
+      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
+      "coolFactor": "Connect Nonverbally Through Dance",
+      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
+      "locationName": "Student Recreation & Wellness Center",
+      "time": "Feb 15 at 4:30 PM"
+    },
+    {
+      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
+      "coolFactor": "Wednesday Dance Social Hour",
+      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
+      "locationName": "Student Recreation & Wellness Center",
+      "time": "Feb 22 at 4:30 PM"
+    },
+    {
+      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
+      "coolFactor": "Beginner-Friendly Movement Experience",
+      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
+      "locationName": "Student Recreation & Wellness Center",
+      "time": "Mar 1 at 4:30 PM"
+    },
+    {
+      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
+      "coolFactor": "Creative Expression Through Dance",
+      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
+      "locationName": "Student Recreation & Wellness Center",
+      "time": "Mar 8 at 4:30 PM"
+    },
+    {
+      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
+      "coolFactor": "Weekly Dance Skill Building",
+      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
+      "locationName": "Student Recreation & Wellness Center",
+      "time": "Mar 15 at 4:30 PM"
+    },
+    {
+      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
+      "coolFactor": "Fun Midweek Dance Break",
+      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
+      "locationName": "Student Recreation & Wellness Center",
+      "time": "Mar 22 at 4:30 PM"
+    },
+    {
+      "eventName": "Girl Scouts 100th Anniversary Tech Expo",
+      "coolFactor": "Inspire Future Women Engineers",
+      "description": "IEEE members will run a booth with hands-on experiments to expose Girl Scouts to science and engineering concepts.",
+      "locationName": "Cashman Center",
+      "time": "Sep 15 at 8:00 AM"
+    },
+    {
+      "eventName": "AMA General Meeting",
+      "coolFactor": "Network with Marketing Professionals",
+      "description": "American Marketing Association general meeting for members to connect and discuss upcoming events and opportunities.",
+      "locationName": "TBA",
+      "time": "Sep 18 at 7:00 PM"
+    },
+    {
+      "eventName": "Women's Lacrosse Practice",
+      "coolFactor": "Join Competitive Club Team",
+      "description": "Open practice for the UNLV Women's Lacrosse team welcoming all interested players regardless of experience level. Team prepares for spring season with fall practices.",
+      "locationName": "Intramural Grass Fields",
+      "time": "Sep 19 at 7:00 PM"
+    }
+  ]
+}

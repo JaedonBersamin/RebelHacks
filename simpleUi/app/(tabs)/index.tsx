@@ -27,7 +27,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         {/* Top Header & Toggle Button */}
         <View style={styles.header}>
-          <Text style={styles.headerText}>Radar App+Jaedon is cute</Text>
+          <Text style={styles.headerText}>Radar App+Jaedon is cute :3</Text>
           <TouchableOpacity
               style={styles.toggleButton}
               onPress={() => setShowMap(!showMap)}
