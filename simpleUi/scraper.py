@@ -1,11 +1,25 @@
 import requests
 import json
+import os
 from openai import OpenAI
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
-# --- CONFIGURATION ---
-GOOGLE_MAPS_API_KEY = "  "
-FEATHERLESS_API_KEY = "  "
+
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+
+GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
+FEATHERLESS_API_KEY = os.getenv("FEATHERLESS_API_KEY")
+
+
+OUTPUT_PATH = os.path.join("app", "map_ready_events.json")
+
+
+# Change this if your index.tsx is inside app/(tabs)/ instead
+OUTPUT_PATH = os.path.join("app/(tabs)/", "map_ready_events.json")
 
 def get_coordinates(building_name):
     print(f"   -> Geocoding: UNLV {building_name}")
@@ -33,9 +47,11 @@ def scrape_and_parse_events():
     url = "https://involvementcenter.unlv.edu/api/discovery/event/search"
 
     now_vegas = datetime.now()
-    now_utc_iso = datetime.utcnow().isoformat() + "Z"
+    now_utc_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
-    # FIX 1: Ask for events that END after right now, so we don't miss ongoing events!
+    # We define exactly what "today" looks like as a string (e.g., "Feb 20")
+    today_string = now_vegas.strftime("%b %d").replace(" 0", " ")
+
     params = {
         "orderByField": "endsOn",
         "orderByDirection": "ascending",
@@ -55,28 +71,20 @@ def scrape_and_parse_events():
         print(f"API pull failed: {e}")
         return
 
-    # FIX 2: We use Python to do the Timezone math and Map Flags so the AI can't mess it up
     pre_processed_events = []
-    vegas_date_today = now_vegas.strftime('%Y-%m-%d')
 
     for event in raw_events:
-        # UNLV gives us UTC, we subtract 8 hours for Las Vegas (PST)
         try:
             utc_start = datetime.strptime(event['startsOn'][:19], "%Y-%m-%dT%H:%M:%S")
             vegas_start = utc_start - timedelta(hours=8)
-
-            # Format time perfectly for the UI
             formatted_time = vegas_start.strftime("%b %d at %I:%M %p").replace(" 0", " ")
-
-            # Determine if it's happening TODAY in Las Vegas
-            is_today = vegas_start.strftime('%Y-%m-%d') == vegas_date_today
 
             pre_processed_events.append({
                 "eventName": event.get("name", ""),
                 "description": event.get("description", ""),
                 "locationName": event.get("location", ""),
-                "time": formatted_time,
-                "showOnMap": is_today # Python guarantees this is 100% accurate!
+                "time": formatted_time
+                # Notice we removed showOnMap from here. The AI isn't allowed to see it anymore.
             })
         except Exception as e:
             continue
@@ -88,10 +96,9 @@ def scrape_and_parse_events():
 
     prompt_data = json.dumps(pre_processed_events)
 
-    # Now the AI ONLY has to write the cool hooks and clean the descriptions
     system_prompt = """
     You are a data extraction assistant.
-    You are receiving a pre-processed JSON array of campus events. The dates, times, and map flags are already 100% correct.
+    You are receiving a pre-processed JSON array of campus events.
 
     CRITICAL RULE: DO NOT DELETE OR SKIP ANY EVENTS. Process every single event in the array.
 
@@ -99,9 +106,8 @@ def scrape_and_parse_events():
     1. eventName: Keep exactly as provided.
     2. locationName: Clean this up to just be the building name or room.
     3. time: Keep exactly as provided.
-    4. showOnMap: Keep exactly as provided.
-    5. description: Clean up the provided description to a clean, 1-to-2 sentence summary. Remove HTML.
-    6. coolFactor: Write a short, punchy 3-to-5 word hook based on the description.
+    4. description: Clean up the provided description to a clean, 1-to-2 sentence summary. Remove HTML.
+    5. coolFactor: Write a short, punchy 3-to-5 word hook based on the description.
 
     Output a JSON object containing a single array called "events".
     """
@@ -119,18 +125,28 @@ def scrape_and_parse_events():
     clean_data = llm_response.choices[0].message.content
     events_dict = json.loads(clean_data)
 
-    print("3. Passing locations to Google Maps API...")
+    print("3. Python is enforcing Map Flags and getting GPS Coordinates...")
 
     for event in events_dict.get('events', []):
+        # 1. Geocoding
         lat, lng = get_coordinates(event.get('locationName', ''))
         event['latitude'] = lat
         event['longitude'] = lng
 
+        # 2. IRONCLAD MAP FLAG LOGIC:
+        # If the exact string "Feb 20" is inside the AI's time output, it gets the green light.
+        # This completely prevents recurring events next week from triggering the map.
+        event['showOnMap'] = today_string in event.get('time', '')
+
     final_json = json.dumps(events_dict, indent=4)
     print("\n--- FINAL PRODUCTION-READY RADAR DATA ---")
 
-    with open('map_ready_events.json', 'w', encoding='utf-8') as f:
+    # Save the file directly into your frontend directory
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
         f.write(final_json)
+
+    print(f"✅ Success! File saved directly to: {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     scrape_and_parse_events()
