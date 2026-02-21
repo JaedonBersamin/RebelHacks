@@ -40,9 +40,7 @@ export default function App() {
     longitudeDelta: 0.015,
   };
 
-  // ==========================================
-  // JOB 1: SUPABASE & LOCATION PERMISSIONS
-  // ==========================================
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -68,12 +66,14 @@ export default function App() {
     return () => supabase.removeChannel(subscription);
   }, []);
 
-  // ==========================================
-  // JOB 2: THE 20-MINUTE RADAR SWEEPER
-  // ==========================================
+//second UseEffect
+
+  // JOB 2:  1-MINUTE
+
   useEffect(() => {
     const sweepRadar = setInterval(() => {
-      const twentyMinsAgo = new Date(Date.now() - 20 * 60 * 1000);
+      // Temporarily set to 1 minute for testing (1 * 60 * 1000)
+      const oneMinAgo = new Date(Date.now() - 20 * 60 * 1000);
 
       setHotSpots((currentSpots) =>
         currentSpots.filter((spot) => {
@@ -84,7 +84,7 @@ export default function App() {
           return pinTime > twentyMinsAgo; // Keep only if newer than 20 mins
         }),
       );
-    }, 60000); // Runs every 60 seconds
+    }, 10000); // Wakes up every 10 seconds now
 
     return () => clearInterval(sweepRadar);
   }, []);
