@@ -1,11 +1,11 @@
 import requests
 import json
 from openai import OpenAI
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 
 # --- CONFIGURATION ---
-GOOGLE_MAPS_API_KEY = "AIzaSyCRHJhNsmSyVEWofUeNZ-DfA-EfqaNRSEU"
-FEATHERLESS_API_KEY = "rc_151483bfc24aadfb736a37b99cff5cb8517d7026c9e5f419d9b9f5bd056fbf0d"
+GOOGLE_MAPS_API_KEY = "  "
+FEATHERLESS_API_KEY = "  "
 
 def get_coordinates(building_name):
     print(f"   -> Geocoding: UNLV {building_name}")
@@ -33,7 +33,7 @@ def scrape_and_parse_events():
     url = "https://involvementcenter.unlv.edu/api/discovery/event/search"
 
     now_vegas = datetime.now()
-    now_utc_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    now_utc_iso = datetime.utcnow().isoformat() + "Z"
 
     # FIX 1: Ask for events that END after right now, so we don't miss ongoing events!
     params = {
