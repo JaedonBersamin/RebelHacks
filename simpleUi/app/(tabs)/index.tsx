@@ -605,41 +605,42 @@ export default function App() {
                           viewBox="0 0 60 60"
                           style={{ position: "absolute" }}
                       >
-                        <Defs>
-                          <RadialGradient
-                              id="grad"
-                              cx="50%"
-                              cy="50%"
-                              rx="50%"
-                              ry="50%"
-                              fx="50%"
-                              fy="50%"
-                          >
-                            <Stop
-                                offset="0%"
-                                stopColor={spot._isOptimistic ? "#F59E0B" : "#EF4444"}
-                                stopOpacity="0.8"
-                            />
-                            <Stop
-                                offset="40%"
-                                stopColor={spot._isOptimistic ? "#F59E0B" : "#EF4444"}
-                                stopOpacity="0.4"
-                            />
-                            <Stop
-                                offset="100%"
-                                stopColor={spot._isOptimistic ? "#F59E0B" : "#EF4444"}
-                                stopOpacity="0"
-                            />
-                          </RadialGradient>
-                        </Defs>
-                        <Circle cx="30" cy="30" r="30" fill="url(#grad)" />
-                      </Svg>
-                      <View
-                          style={[
-                            styles.snapMapInnerCircle,
-                            spot._isOptimistic && styles.snapMapInnerCircleOptimistic,
-                          ]}
-                      />
+                        <Stop
+                          offset="0%"
+                          stopColor="#EF4444"
+                          stopOpacity="0.8"
+                        />
+                        <Stop
+                          offset="40%"
+                          stopColor="#EF4444"
+                          stopOpacity="0.4"
+                        />
+                        <Stop
+                          offset="100%"
+                          stopColor="#EF4444"
+                          stopOpacity="0"
+                        />
+                      </RadialGradient>
+                    </Defs>
+                    <Circle cx="30" cy="30" r="30" fill="url(#grad)" />
+                  </Svg>
+                  <View style={styles.snapMapInnerCircle} />
+                </View>
+                <Callout
+                  tooltip
+                  onPress={() => {
+                    if (isOwner) {
+                      setHotspotLabel(spot.name || "Hot Spot");
+                      setEditingHotspot(true);
+                      setShowHotspotModal(true);
+                    }
+                  }}
+                >
+                  <View style={hotspotCallout.container}>
+                    <View style={hotspotCallout.header}>
+                      <Text style={hotspotCallout.name} numberOfLines={1}>
+                        {spot.name || "Hot Spot"}
+                      </Text>
                     </View>
                     <Callout
                         tooltip
