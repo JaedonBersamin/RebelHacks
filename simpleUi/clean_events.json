@@ -1,74 +1,144 @@
 {
   "events": [
     {
-      "eventName": "UNLV Tango Salsa Club",
-      "coolFactor": "Learn Partner Dance Socially",
-      "description": "The club brings the joy of social partner dancing to UNLV through tango and salsa classes, social dance events, and performances. All skill levels are welcome in a safe and friendly environment.",
-      "locationName": "Student Wellness & Recreation Center",
-      "time": "Jan 25 at 4:30 PM"
+      "eventName": "Resume Review Workshop",
+      "coolFactor": "Industry feedback for career success",
+      "description": "The ITE UNLV Student Chapter is hosting a Resume Review Workshop where students can get direct feedback from hiring managers and industry professionals to strengthen their resumes for internships and full-time opportunities.",
+      "locationName": "SEB 1243",
+      "time": "Feb 20 at 11:30 AM"
     },
     {
-      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
-      "coolFactor": "Connect Nonverbally Through Dance",
-      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
-      "locationName": "Student Recreation & Wellness Center",
-      "time": "Feb 15 at 4:30 PM"
+      "eventName": "LeaderShape: Resilience Workshop",
+      "coolFactor": "Build strength through core values",
+      "description": "Participants will explore the LeaderShape Model of Resilience to discover their core values, learn to navigate challenges, and build strength both individually and within communities.",
+      "locationName": "SU Room 208",
+      "time": "Feb 20 at 9:30 AM"
     },
     {
-      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
-      "coolFactor": "Wednesday Dance Social Hour",
-      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
-      "locationName": "Student Recreation & Wellness Center",
-      "time": "Feb 22 at 4:30 PM"
+      "eventName": "K-pop Club Dance Team Audition",
+      "coolFactor": "Showcase your dance skills",
+      "description": "K-pop Club is holding auditions to create a dance team where participants will present 30-60 seconds of any K-pop choreography and have a brief interview with judges.",
+      "locationName": "SRWC rm 2025",
+      "time": "Feb 20 at 10:00 AM"
     },
     {
-      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
-      "coolFactor": "Beginner-Friendly Movement Experience",
-      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
-      "locationName": "Student Recreation & Wellness Center",
-      "time": "Mar 1 at 4:30 PM"
+      "eventName": "Relaxing Your Mind: Coping With Anxiety",
+      "coolFactor": "Practical skills for stress relief",
+      "description": "This two-part workshop provides information about anxiety and practical coping skills for managing anxiety and stress.",
+      "locationName": "Online",
+      "time": "Feb 20 at 11:00 AM"
     },
     {
-      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
-      "coolFactor": "Creative Expression Through Dance",
-      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
-      "locationName": "Student Recreation & Wellness Center",
-      "time": "Mar 8 at 4:30 PM"
+      "eventName": "SPS Guest Lecture",
+      "coolFactor": "Explore the universe's origins",
+      "description": "Join Dr. David Jeffrey as he explores the fascinating history of cosmology and how physicists study supernovae and radiative transfer to understand how the universe became what it is today.",
+      "locationName": "BPB 248",
+      "time": "Feb 20 at 12:00 PM"
     },
     {
-      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
-      "coolFactor": "Weekly Dance Skill Building",
-      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
-      "locationName": "Student Recreation & Wellness Center",
-      "time": "Mar 15 at 4:30 PM"
+      "eventName": "Advising #1- Spring 26 Success Series",
+      "coolFactor": "Maximize your advising sessions",
+      "description": "Learn why it's important to schedule advising appointments early and how to make the most of these sessions, including strategies for selecting courses that align with your goals.",
+      "locationName": "Online",
+      "time": "Feb 20 at 1:00 PM"
     },
     {
-      "eventName": "Argentine Tango Class (UNLV Tango Salsa Club)",
-      "coolFactor": "Fun Midweek Dance Break",
-      "description": "Weekly Argentine Tango classes focused on fostering connection and creativity through nonverbal communication. No dance experience required - just bring socks and a smile.",
-      "locationName": "Student Recreation & Wellness Center",
-      "time": "Mar 22 at 4:30 PM"
+      "eventName": "Friday kick!",
+      "coolFactor": "Improve balance and coordination",
+      "description": "Join Rebel Freestyle to hone balance, coordination, dexterity, power, and friendships while meeting in the lobby of the Recreation Center.",
+      "locationName": "Student Recreation and Wellness Center",
+      "time": "Feb 20 at 6:30 PM"
     },
     {
-      "eventName": "Girl Scouts 100th Anniversary Tech Expo",
-      "coolFactor": "Inspire Future Women Engineers",
-      "description": "IEEE members will run a booth with hands-on experiments to expose Girl Scouts to science and engineering concepts.",
-      "locationName": "Cashman Center",
-      "time": "Sep 15 at 8:00 AM"
+      "eventName": "Discord Project Update Meeting",
+      "coolFactor": "Connect with engineering professionals",
+      "description": "Join Engineers Without Borders for their February project update meeting via Discord to discuss major club updates and progress with professionals in attendance.",
+      "locationName": "Online",
+      "time": "Feb 21 at 4:00 PM"
     },
     {
-      "eventName": "AMA General Meeting",
-      "coolFactor": "Network with Marketing Professionals",
-      "description": "American Marketing Association general meeting for members to connect and discuss upcoming events and opportunities.",
-      "locationName": "TBA",
-      "time": "Sep 18 at 7:00 PM"
+      "eventName": "Guided Hike with a Bureau of Land Management Ranger at Sloan Canyon Petroglyph Site",
+      "coolFactor": "Explore Mojave Desert history",
+      "description": "Join The Wildlife Society for a guided 5.5-mile hike on the Petroglyph Trail in Sloan Canyon National Conservation Area to learn about Mojave Desert plants, wildlife, and local history from a Park Ranger.",
+      "locationName": "3495 Via Altamira, Henderson",
+      "time": "Feb 22 at 9:00 AM"
     },
     {
-      "eventName": "Women's Lacrosse Practice",
-      "coolFactor": "Join Competitive Club Team",
-      "description": "Open practice for the UNLV Women's Lacrosse team welcoming all interested players regardless of experience level. Team prepares for spring season with fall practices.",
-      "locationName": "Intramural Grass Fields",
-      "time": "Sep 19 at 7:00 PM"
+      "eventName": "Scientista Sunday",
+      "coolFactor": "Unwind with coffee and treats",
+      "description": "Unwind with Scientista over a latte and some treats at Tous Les Jours Cafe for a relaxing social gathering.",
+      "locationName": "Tous Les Jours Cafe",
+      "time": "Feb 22 at 11:00 AM"
+    },
+    {
+      "eventName": "February Bird Walk!",
+      "coolFactor": "Discover campus bird diversity",
+      "description": "Join UNLV Birding and Conservation Club for a monthly on-campus bird walk to learn about birds and diversity right on UNLV's main campus, perfect for beginners and experienced birders.",
+      "locationName": "Lee Pascal Memorial Rose Garden",
+      "time": "Feb 23 at 8:00 AM"
+    },
+    {
+      "eventName": "It's Just Coffee: Mental Health in America",
+      "coolFactor": "Dialogue about complex topics",
+      "description": "This event brings together diverse perspectives to dialogue about mental health in America through sharing viewpoints, listening openly, and working to understand each other in a low-stakes environment.",
+      "locationName": "Student Union Room 316",
+      "time": "Feb 23 at 10:30 AM"
+    },
+    {
+      "eventName": "CAEO + Writing Center Scholarship Workshop",
+      "coolFactor": "Prepare scholarship application essays",
+      "description": "Join the Writing Center in collaboration with the Center for Academic Enrichment and Outreach to prepare for writing scholarship application essays.",
+      "locationName": "Online",
+      "time": "Feb 23 at 2:00 PM"
+    },
+    {
+      "eventName": "UNLV PAD x Princeton Review: LSAT Reading Comprehension Workshop",
+      "coolFactor": "Master LSAT reading comprehension",
+      "description": "Join an expert instructor to work through sample LSAT Reading Comprehension questions that will help prepare you for one of the two main LSAT sections.",
+      "locationName": "Online",
+      "time": "Feb 23 at 5:30 PM"
+    },
+    {
+      "eventName": "Black Mini Con",
+      "coolFactor": "Celebrate Black LGBTQIA+ identity",
+      "description": "This mini conference features interactive sessions centering Black LGBTQIA+ identity, Black mental health, resilience, and belonging through learning, healing, and affirmation.",
+      "locationName": "Marjorie Barrick Museum of Art",
+      "time": "Feb 24 at 11:00 AM"
+    },
+    {
+      "eventName": "\"Resolving One-on-One Conflicts (Workplace)\"'",
+      "coolFactor": "Productive conflict resolution techniques",
+      "description": "This interactive session walks you through common workplace conflicts and provides techniques to resolve conflicts productively with peers, supervisors, or subordinates.",
+      "locationName": "BEH 240",
+      "time": "Feb 24 at 2:00 PM"
+    },
+    {
+      "eventName": "Mindfulness Arts and Crafts Corner",
+      "coolFactor": "Calming space for creative expression",
+      "description": "A calming space to slow down, breathe, and express yourself through soothing arts and crafts for mindfulness and relaxation.",
+      "locationName": "SRWC, Room 1502",
+      "time": "Feb 24 at 2:00 PM"
+    },
+    {
+      "eventName": "Mindful Moments: Weekly Guided Meditation",
+      "coolFactor": "Weekly guided meditation sessions",
+      "description": "Join for weekly guided meditation sessions to practice mindfulness and relaxation techniques.",
+      "locationName": "SRWC, Room 1502",
+      "time": "Feb 24 at 4:30 PM"
+    },
+    {
+      "eventName": "Word Games Japanese Student Alliance General Meeting",
+      "coolFactor": "Play Japanese word games",
+      "description": "Join the Japanese Students Alliance for Word Wolf and E-Shiritori games - knowledge of Japanese is not required as all games are available in English or Japanese.",
+      "locationName": "Student Union",
+      "time": "Feb 24 at 5:00 PM"
+    },
+    {
+      "eventName": "ALPFA x Eide Bailly Early Career Panel",
+      "coolFactor": "Career insights from professionals",
+      "description": "Join ALPFA for an early career panel with Eide Bailly professionals to gain insight into internships, full-time roles, and career growth in accounting and business.",
+      "locationName": "Philip J. Cohen Theatre",
+      "time": "Feb 24 at 6:00 PM"
     }
   ]
 }
