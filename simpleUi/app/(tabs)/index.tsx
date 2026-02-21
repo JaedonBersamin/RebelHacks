@@ -12,6 +12,7 @@ import {
   Image,
   ScrollView,
   Modal,
+
 } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
@@ -27,9 +28,9 @@ const supabase = createClient(
 
 const { width, height } = Dimensions.get("window");
 
-// ─────────────────────────────────────────
+
 // EVENT DETAIL FULL SCREEN
-// ─────────────────────────────────────────
+
 const EventDetail = ({
   item,
   onClose,
@@ -126,9 +127,9 @@ const EventDetail = ({
   );
 };
 
-// ─────────────────────────────────────────
+
 // EVENT CARD COMPONENT
-// ─────────────────────────────────────────
+
 const EventCard = ({
   item,
   onPress,
@@ -200,9 +201,9 @@ const EventCard = ({
   </TouchableOpacity>
 );
 
-// ─────────────────────────────────────────
+
 // MAIN APP
-// ─────────────────────────────────────────
+
 export default function App() {
   const [locationPermission, setLocationPermission] = useState(null);
   const [hotSpots, setHotSpots] = useState([]);
@@ -210,6 +211,9 @@ export default function App() {
   const [showMap, setShowMap] = useState(false);
   const [focusedEvent, setFocusedEvent] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const [isPromptVisible, setIsPromptVisible] = useState(false);
+  const [hotspotName, setHotspotName] = useState("");
 
   const liveEvents = eventData.events || [];
   const activeMapEvents = liveEvents.filter(
@@ -264,7 +268,7 @@ export default function App() {
     if (!locationPermission) {
       Alert.alert(
         "Permission Denied",
-        "We need your location to drop a warning pin!",
+        "We need your location to drop a pin!",
       );
       return;
     }
@@ -278,6 +282,9 @@ export default function App() {
         longitude: currentLocation.coords.longitude,
         timestamp: new Date().toISOString(),
       };
+
+      setHotSpots(currentSpots => [...currentSpots, newWarningPin]);
+
       const { error } = await supabase.from("hotspots").insert([newWarningPin]);
       if (error) throw error;
       Alert.alert("Radar Updated", "Mark Successful!");
@@ -289,9 +296,9 @@ export default function App() {
     }
   };
 
-  // ─────────────────────────────────────────
+
   // MAP VIEW
-  // ─────────────────────────────────────────
+
   if (showMap) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -339,7 +346,7 @@ export default function App() {
                   latitude: spot.latitude,
                   longitude: spot.longitude,
                 }}
-                title="⚠️ Active Hot Spot"
+                title="Active Hot Spot"
                 description={`Reported at ${displayTime}`}
               >
                 <View
@@ -417,9 +424,9 @@ export default function App() {
     );
   }
 
-  // ─────────────────────────────────────────
+
   // HOME VIEW
-  // ─────────────────────────────────────────
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -501,9 +508,9 @@ export default function App() {
   );
 }
 
-// ─────────────────────────────────────────
+
 // DETAIL STYLES
-// ─────────────────────────────────────────
+
 const detail = StyleSheet.create({
   imageContainer: {
     height: 280,
@@ -664,9 +671,9 @@ const detail = StyleSheet.create({
   },
 });
 
-// ─────────────────────────────────────────
+
 // MAIN STYLES
-// ─────────────────────────────────────────
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
