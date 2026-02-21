@@ -327,7 +327,7 @@ export default function App() {
               }}
               title={event.eventName}
               description={event.coolFactor}
-              pinColor="#6366F1"
+              pinColor="#CC0000"
             />
           ))}
 
@@ -432,7 +432,7 @@ export default function App() {
       {/* Header */}
       <View style={styles.header}>
         <View>
-          <Text style={styles.headerTitle}>EventFinder</Text>
+          <Text style={styles.headerTitle}>Rebel Radar</Text>
           <Text style={styles.headerSubtitle}>Discover events near you</Text>
         </View>
         <TouchableOpacity
@@ -515,7 +515,7 @@ const detail = StyleSheet.create({
   heroPlaceholder: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#EEF2FF",
+    backgroundColor: "#F5E6E6",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -574,7 +574,7 @@ const detail = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 6,
-    backgroundColor: "#EEF2FF",
+    backgroundColor: "#F5E6E6",
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 12,
@@ -585,7 +585,7 @@ const detail = StyleSheet.create({
   pillText: {
     fontSize: 13,
     fontWeight: "600",
-    color: "#4F46E5",
+    color: "#CC0000",
   },
   locationRow: {
     flexDirection: "row",
@@ -607,12 +607,12 @@ const detail = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     gap: 10,
-    backgroundColor: "#FFFBEB",
+    backgroundColor: "#FFF0F0",
     padding: 16,
     borderRadius: 14,
     marginBottom: 20,
     borderLeftWidth: 3,
-    borderLeftColor: "#F59E0B",
+    borderLeftColor: "#CC0000",
   },
   highlightIcon: {
     fontSize: 16,
@@ -622,7 +622,7 @@ const detail = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     fontWeight: "600",
-    color: "#92400E",
+    color: "#8B0000",
     lineHeight: 20,
   },
   section: {
@@ -644,10 +644,10 @@ const detail = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 8,
-    backgroundColor: "#4F46E5",
+    backgroundColor: "#CC0000",
     paddingVertical: 16,
     borderRadius: 16,
-    shadowColor: "#4F46E5",
+    shadowColor: "#CC0000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.35,
     shadowRadius: 8,
@@ -669,7 +669,7 @@ const detail = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F0F4FF",
+    backgroundColor: "#F5F5F5",
   },
   header: {
     flexDirection: "row",
@@ -684,7 +684,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: "800",
-    color: "#4F46E5",
+    color: "#CC0000",
     letterSpacing: -0.5,
   },
   headerSubtitle: {
@@ -693,7 +693,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   headerIcon: {
-    backgroundColor: "#EEF2FF",
+    backgroundColor: "#F5E6E6",
     borderRadius: 50,
     padding: 12,
   },
@@ -811,10 +811,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 8,
-    backgroundColor: "#4F46E5",
+    backgroundColor: "#CC0000",
     paddingVertical: 16,
     borderRadius: 16,
-    shadowColor: "#4F46E5",
+    shadowColor: "#CC0000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 8,
