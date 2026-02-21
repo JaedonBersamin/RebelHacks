@@ -1,169 +1,169 @@
 {
-    "events": [
-        {
-            "eventName": "Discord Project Update Meeting",
-            "locationName": "Online",
-            "time": "Feb 21 at 4:00 PM",
-            "description": "Join the February project update meeting via Discord to hear major club updates and discuss progress. Professionals will attend, offering a great networking opportunity for those looking to get more involved.",
-            "coolFactor": "Network with professionals online",
-            "imageUrl": "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg",
-            "latitude": 36.1112623,
-            "longitude": -115.13709010000001,
-            "showOnMap": true
-        },
-        {
-            "eventName": "Scientista Sunday",
-            "locationName": "Tous Les Jours Cafe",
-            "time": "Feb 22 at 11:00 AM",
-            "description": "Unwind with Scientista over a latte and treats at Tous Les Jours Cafe.",
-            "coolFactor": "Coffee and treats social",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/4af92a46-d7fa-4c10-b1bc-0f47662f3167a0b247d2-328f-41ca-b772-034a0a5d35ce.png",
-            "latitude": 36.1250697,
-            "longitude": -115.20559639999999,
-            "showOnMap": false
-        },
-        {
-            "eventName": "Guided Hike with a Bureau of Land Management Ranger at Sloan Canyon Petroglyph Site",
-            "locationName": "Via Altamira Park",
-            "time": "Feb 22 at 9:00 AM",
-            "description": "Join a guided hike on the Petroglyph Trail in Sloan Canyon National Conservation Area. Learn about Mojave Desert plants, wildlife, and local history from a Park Ranger.",
-            "coolFactor": "Explore ancient petroglyphs outdoors",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/cf955584-dca4-4731-9c48-757ec18cd97c3779dfca-db5d-4d4e-bb8e-5e13d5cede5e.png",
-            "latitude": 36.1079258,
-            "longitude": -115.14276919999999,
-            "showOnMap": false
-        },
-        {
-            "eventName": "February Bird Walk!",
-            "locationName": "Lee Pascal Memorial Rose Garden",
-            "time": "Feb 23 at 8:00 AM",
-            "description": "Join monthly bird walks to learn about campus bird species and diversity. Great for beginners and experienced birders, with binoculars provided.",
-            "coolFactor": "Discover campus birdlife",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/559f0fc3-25d5-4425-9bb4-48f48ff6e801cb0a0b98-27e7-4885-ae6b-c9fb86e8d3fa.png",
-            "latitude": 36.1094023,
-            "longitude": -115.13921409999998,
-            "showOnMap": false
-        },
-        {
-            "eventName": "It's Just Coffee: Mental Health in America",
-            "locationName": "Student Union Room 316",
-            "time": "Feb 23 at 10:30 AM",
-            "description": "Join a dialogue session to discuss mental health in America through sharing viewpoints and listening openly. No expertise required, with coffee and snacks provided.",
-            "coolFactor": "Dialogue over coffee",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/d5040f6d-61d4-4363-9c27-25ee4f57448dbfd1a82f-cb85-4918-9d5f-d73b2911feaa.png",
-            "latitude": 36.105973299999995,
-            "longitude": -115.1384981,
-            "showOnMap": false
-        },
-        {
-            "eventName": "CAEO + Writing Center Scholarship Workshop",
-            "locationName": "Online",
-            "time": "Feb 23 at 2:00 PM",
-            "description": "Prepare for scholarship application essays with guidance from the Writing Center and Center for Academic Enrichment and Outreach.",
-            "coolFactor": "Boost scholarship essay skills",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/91c0d4ea-d3ff-41c8-bf02-38f7b72e8767ca312c06-aed9-48a9-a6de-d385c4383d64.png",
-            "latitude": 36.1112623,
-            "longitude": -115.13709010000001,
-            "showOnMap": false
-        },
-        {
-            "eventName": "UNLV PAD x Princeton Review: LSAT Reading Comprehension Workshop",
-            "locationName": "Online",
-            "time": "Feb 23 at 5:30 PM",
-            "description": "Join an expert instructor to work through LSAT Reading Comprehension sample questions and prepare for the exam.",
-            "coolFactor": "Ace LSAT reading section",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/780ab522-5d0c-4129-8597-adb48f0353a6fba85801-30de-46a6-9959-18cdf9199762.pdf",
-            "latitude": 36.1112623,
-            "longitude": -115.13709010000001,
-            "showOnMap": false
-        },
-        {
-            "eventName": "Black Mini Con \ud83c\udfc8\ud83d\udda4\u2728",
-            "locationName": "Marjorie Barrick Museum of Art",
-            "time": "Feb 24 at 11:00 AM",
-            "description": "Attend a mini conference featuring sessions on Black LGBTQIA+ identity and mental health. Includes lunch and opportunities for learning and connection.",
-            "coolFactor": "Celebrate Black identity together",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/da2b3f19-a2b9-46c0-8576-17f496e2ca360d2ada01-2c99-442f-bed1-1af16bd57c4e.png",
-            "latitude": 36.1069666,
-            "longitude": -115.1410679,
-            "showOnMap": false
-        },
-        {
-            "eventName": "\"Resolving One-on-One Conflicts (Workplace)\"'",
-            "locationName": "BEH 240",
-            "time": "Feb 24 at 2:00 PM",
-            "description": "Learn techniques to resolve conflicts with peers, supervisors, or subordinates in this interactive session. Resources provided for productive conflict resolution.",
-            "coolFactor": "Master workplace conflict resolution",
-            "imageUrl": "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg",
-            "latitude": 36.1079258,
-            "longitude": -115.14276919999999,
-            "showOnMap": false
-        },
-        {
-            "eventName": "Mindfulness Arts and Crafts Corner",
-            "locationName": "SRWC Room 1502",
-            "time": "Feb 24 at 2:00 PM",
-            "description": "Enjoy a calming space to slow down, breathe, and express yourself through soothing arts and crafts.",
-            "coolFactor": "Relax with creative arts",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/63a344ea-0c98-45e8-9190-571ad355bce73a1b1bff-30d3-4f38-965c-7216c87b9f7a.png",
-            "latitude": 36.1030809,
-            "longitude": -115.14203989999999,
-            "showOnMap": false
-        },
-        {
-            "eventName": "Mindful Moments: Weekly Guided Meditation",
-            "locationName": "SRWC Room 1502",
-            "time": "Feb 24 at 4:30 PM",
-            "description": "Join for guided meditation to practice mindfulness and relaxation. No registration needed.",
-            "coolFactor": "Find peace through meditation",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/f5fd7d94-e0bf-4082-84ba-bc0ed7c272f6d026bdb7-31d0-4219-bcb0-b8cedf2a2de9.png",
-            "latitude": 36.1030809,
-            "longitude": -115.14203989999999,
-            "showOnMap": false
-        },
-        {
-            "eventName": "Word Games Japanese Student Alliance General Meeting",
-            "locationName": "Student Union",
-            "time": "Feb 24 at 5:00 PM",
-            "description": "Play Word Wolf and E-Shiritori games in English or Japanese. No Japanese knowledge required for this fun word game session.",
-            "coolFactor": "Play fun word games",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/949ca23e-2123-41d9-978b-89dfa7055a958f0e9f24-87d8-4fb3-a73d-2a4202021c4d.png",
-            "latitude": 36.105973299999995,
-            "longitude": -115.1384981,
-            "showOnMap": false
-        },
-        {
-            "eventName": "ALPFA x Eide Bailly Early Career Panel",
-            "locationName": "Philip J. Cohen Theatre",
-            "time": "Feb 24 at 6:00 PM",
-            "description": "Hear from accounting and business professionals about early career paths, internships, and growth opportunities. Great for networking and career insight.",
-            "coolFactor": "Gain early career insights",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/a58b5057-60d2-4644-bf1f-c4cef257377e7a825341-4b8a-40f2-ae7d-bf6ae0ad8d27.png",
-            "latitude": 36.1067265,
-            "longitude": -115.13845130000001,
-            "showOnMap": false
-        },
-        {
-            "eventName": "Tuesday kick!",
-            "locationName": "Student Recreation and Wellness Center",
-            "time": "Feb 24 at 6:30 PM",
-            "description": "Join to hone balance, coordination, and power through recreational activities. Meet in the Rec lobby and connect via WhatsApp for details.",
-            "coolFactor": "Fun fitness and friendship",
-            "imageUrl": "https://se-images.campuslabs.com/clink/images/0e1f32de-c566-4e92-be6b-6f76fc0e6b02a96e438a-2326-461d-aeb0-524c90f88e7b.png",
-            "latitude": 36.1030809,
-            "longitude": -115.14203989999999,
-            "showOnMap": false
-        },
-        {
-            "eventName": "General Study Abroad Scholarship Workshop",
-            "locationName": "BEH 240",
-            "time": "Feb 25 at 10:00 AM",
-            "description": "Get tips on finding study abroad funding and receive help with essay and application reviews to boost your chances for scholarships.",
-            "coolFactor": "Fund your study abroad",
-            "imageUrl": "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg",
-            "latitude": 36.1079258,
-            "longitude": -115.14276919999999,
-            "showOnMap": false
-        }
-    ]
+  "events": [
+    {
+      "eventName": "Discord Project Update Meeting",
+      "locationName": "Online",
+      "time": "Feb 21 at 4:00 PM",
+      "description": "Join the February project update meeting via Discord to hear major club updates and discuss progress. Professionals will attend, offering a great networking opportunity for those looking to get more involved.",
+      "coolFactor": "Network with professionals online",
+      "imageUrl": "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg",
+      "latitude": 36.1112623,
+      "longitude": -115.13709010000001,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Scientista Sunday",
+      "locationName": "Tous Les Jours Cafe",
+      "time": "Feb 22 at 11:00 AM",
+      "description": "Unwind with Scientista over a latte and treats at Tous Les Jours Cafe.",
+      "coolFactor": "Coffee and treats social",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/4af92a46-d7fa-4c10-b1bc-0f47662f3167a0b247d2-328f-41ca-b772-034a0a5d35ce.png",
+      "latitude": 36.1250697,
+      "longitude": -115.20559639999999,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Guided Hike with a Bureau of Land Management Ranger at Sloan Canyon Petroglyph Site",
+      "locationName": "Via Altamira Park",
+      "time": "Feb 22 at 9:00 AM",
+      "description": "Join a guided hike on the Petroglyph Trail in Sloan Canyon National Conservation Area. Learn about Mojave Desert plants, wildlife, and local history from a Park Ranger.",
+      "coolFactor": "Explore ancient petroglyphs outdoors",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/cf955584-dca4-4731-9c48-757ec18cd97c3779dfca-db5d-4d4e-bb8e-5e13d5cede5e.png",
+      "latitude": 36.1079258,
+      "longitude": -115.14276919999999,
+      "showOnMap": false
+    },
+    {
+      "eventName": "February Bird Walk!",
+      "locationName": "Lee Pascal Memorial Rose Garden",
+      "time": "Feb 23 at 8:00 AM",
+      "description": "Join monthly bird walks to learn about campus bird species and diversity. Great for beginners and experienced birders, with binoculars provided.",
+      "coolFactor": "Discover campus birdlife",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/559f0fc3-25d5-4425-9bb4-48f48ff6e801cb0a0b98-27e7-4885-ae6b-c9fb86e8d3fa.png",
+      "latitude": 36.1094023,
+      "longitude": -115.13921409999998,
+      "showOnMap": false
+    },
+    {
+      "eventName": "It's Just Coffee: Mental Health in America",
+      "locationName": "Student Union Room 316",
+      "time": "Feb 23 at 10:30 AM",
+      "description": "Join a dialogue session to discuss mental health in America through sharing viewpoints and listening openly. No expertise required, with coffee and snacks provided.",
+      "coolFactor": "Dialogue over coffee",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/d5040f6d-61d4-4363-9c27-25ee4f57448dbfd1a82f-cb85-4918-9d5f-d73b2911feaa.png",
+      "latitude": 36.105973299999995,
+      "longitude": -115.1384981,
+      "showOnMap": false
+    },
+    {
+      "eventName": "CAEO + Writing Center Scholarship Workshop",
+      "locationName": "Online",
+      "time": "Feb 23 at 2:00 PM",
+      "description": "Prepare for scholarship application essays with guidance from the Writing Center and Center for Academic Enrichment and Outreach.",
+      "coolFactor": "Boost scholarship essay skills",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/91c0d4ea-d3ff-41c8-bf02-38f7b72e8767ca312c06-aed9-48a9-a6de-d385c4383d64.png",
+      "latitude": 36.1112623,
+      "longitude": -115.13709010000001,
+      "showOnMap": false
+    },
+    {
+      "eventName": "UNLV PAD x Princeton Review: LSAT Reading Comprehension Workshop",
+      "locationName": "Online",
+      "time": "Feb 23 at 5:30 PM",
+      "description": "Join an expert instructor to work through LSAT Reading Comprehension sample questions and prepare for the exam.",
+      "coolFactor": "Ace LSAT reading section",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/780ab522-5d0c-4129-8597-adb48f0353a6fba85801-30de-46a6-9959-18cdf9199762.pdf",
+      "latitude": 36.1112623,
+      "longitude": -115.13709010000001,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Black Mini Con \ud83c\udfc8\ud83d\udda4\u2728",
+      "locationName": "Marjorie Barrick Museum of Art",
+      "time": "Feb 24 at 11:00 AM",
+      "description": "Attend a mini conference featuring sessions on Black LGBTQIA+ identity and mental health. Includes lunch and opportunities for learning and connection.",
+      "coolFactor": "Celebrate Black identity together",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/da2b3f19-a2b9-46c0-8576-17f496e2ca360d2ada01-2c99-442f-bed1-1af16bd57c4e.png",
+      "latitude": 36.1069666,
+      "longitude": -115.1410679,
+      "showOnMap": false
+    },
+    {
+      "eventName": "\"Resolving One-on-One Conflicts (Workplace)\"'",
+      "locationName": "BEH 240",
+      "time": "Feb 24 at 2:00 PM",
+      "description": "Learn techniques to resolve conflicts with peers, supervisors, or subordinates in this interactive session. Resources provided for productive conflict resolution.",
+      "coolFactor": "Master workplace conflict resolution",
+      "imageUrl": "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg",
+      "latitude": 36.1079258,
+      "longitude": -115.14276919999999,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Mindfulness Arts and Crafts Corner",
+      "locationName": "SRWC Room 1502",
+      "time": "Feb 24 at 2:00 PM",
+      "description": "Enjoy a calming space to slow down, breathe, and express yourself through soothing arts and crafts.",
+      "coolFactor": "Relax with creative arts",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/63a344ea-0c98-45e8-9190-571ad355bce73a1b1bff-30d3-4f38-965c-7216c87b9f7a.png",
+      "latitude": 36.1030809,
+      "longitude": -115.14203989999999,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Mindful Moments: Weekly Guided Meditation",
+      "locationName": "SRWC Room 1502",
+      "time": "Feb 24 at 4:30 PM",
+      "description": "Join for guided meditation to practice mindfulness and relaxation. No registration needed.",
+      "coolFactor": "Find peace through meditation",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/f5fd7d94-e0bf-4082-84ba-bc0ed7c272f6d026bdb7-31d0-4219-bcb0-b8cedf2a2de9.png",
+      "latitude": 36.1030809,
+      "longitude": -115.14203989999999,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Word Games Japanese Student Alliance General Meeting",
+      "locationName": "Student Union",
+      "time": "Feb 24 at 5:00 PM",
+      "description": "Play Word Wolf and E-Shiritori games in English or Japanese. No Japanese knowledge required for this fun word game session.",
+      "coolFactor": "Play fun word games",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/949ca23e-2123-41d9-978b-89dfa7055a958f0e9f24-87d8-4fb3-a73d-2a4202021c4d.png",
+      "latitude": 36.105973299999995,
+      "longitude": -115.1384981,
+      "showOnMap": false
+    },
+    {
+      "eventName": "ALPFA x Eide Bailly Early Career Panel",
+      "locationName": "Philip J. Cohen Theatre",
+      "time": "Feb 24 at 6:00 PM",
+      "description": "Hear from accounting and business professionals about early career paths, internships, and growth opportunities. Great for networking and career insight.",
+      "coolFactor": "Gain early career insights",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/a58b5057-60d2-4644-bf1f-c4cef257377e7a825341-4b8a-40f2-ae7d-bf6ae0ad8d27.png",
+      "latitude": 36.1067265,
+      "longitude": -115.13845130000001,
+      "showOnMap": false
+    },
+    {
+      "eventName": "Tuesday kick!",
+      "locationName": "Student Recreation and Wellness Center",
+      "time": "Feb 24 at 6:30 PM",
+      "description": "Join to hone balance, coordination, and power through recreational activities. Meet in the Rec lobby and connect via WhatsApp for details.",
+      "coolFactor": "Fun fitness and friendship",
+      "imageUrl": "https://se-images.campuslabs.com/clink/images/0e1f32de-c566-4e92-be6b-6f76fc0e6b02a96e438a-2326-461d-aeb0-524c90f88e7b.png",
+      "latitude": 36.1030809,
+      "longitude": -115.14203989999999,
+      "showOnMap": false
+    },
+    {
+      "eventName": "General Study Abroad Scholarship Workshop",
+      "locationName": "BEH 240",
+      "time": "Feb 25 at 10:00 AM",
+      "description": "Get tips on finding study abroad funding and receive help with essay and application reviews to boost your chances for scholarships.",
+      "coolFactor": "Fund your study abroad",
+      "imageUrl": "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg",
+      "latitude": 36.1079258,
+      "longitude": -115.14276919999999,
+      "showOnMap": false
+    }
+  ]
 }
