@@ -12,13 +12,13 @@ Rebel Radar aggregates and displays events and activities happening at UNLV, org
 - **Associations** — Stay informed on academic and professional group events
 - **Food** — Discover dining options and food-related events on campus
 
-It also features a **Hotspot Button**, which lets users drop a real-time alert at their location to warn others of something happening in the area — whether that's people soliciting on campus, a crowd, or any other alert worth sharing with fellow Rebels.
+It also features a **Hotspot Button**, which lets users drop a real-time alert at their location to notify others of something happening in the area; whether that's people soliciting on campus, a crowd, or any other alert worth sharing with fellow Rebels.
 
 ---
 
 ## Las Vegas & The Rebel Community
 
-UNLV sits in the heart of Las Vegas, home to one of the most vibrant and fast-moving communities in the country. Rebel Radar was built with that energy in mind — giving UNLV's Rebel community a dedicated tool to navigate campus life with the same pulse and awareness that defines Las Vegas itself. Whether you're a first-year student or a longtime Rebel, Rebel Radar keeps you tapped into what's happening right now.
+UNLV sits in the heart of Las Vegas, home to one of the most vibrant and fast-moving communities in the country. Rebel Radar was built with that energy in mind — giving UNLV's Rebel community a dedicated tool to navigate campus life with the same pulse and awareness that defines Las Vegas itself. Rebel Radar keeps you tapped into what's happening right now.
 
 ---
 
