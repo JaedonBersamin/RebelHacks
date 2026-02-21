@@ -94,6 +94,8 @@ export default function App() {
         timestamp: new Date().toISOString(), // Raw computer time for the database
       };
 
+      setHotSpots(currentSpots => [...currentSpots, newWarningPin]);
+
       const { error } = await supabase.from('hotspots').insert([newWarningPin]);
 
       if (error) throw error;
