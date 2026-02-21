@@ -1,0 +1,504 @@
+{
+    "events": [
+        {
+            "eventName": "Discord Project Update Meeting",
+            "locationName": "Online",
+            "time": "Feb 21 at 4:00 PM",
+            "description": "Our February project update meeting via Discord to discuss major club updates and ongoing work. Professionals will attend, offering a great opportunity for involvement.",
+            "coolFactor": "Connect with industry professionals",
+            "latitude": 36.1112623,
+            "longitude": -115.13709010000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Scientista Sunday",
+            "locationName": "Tous Les Jours Cafe",
+            "time": "Feb 22 at 11:00 AM",
+            "description": "Unwind with Scientista over a latte and some treats at Tous Les Jours Cafe.",
+            "coolFactor": "Coffee and conversation treats",
+            "latitude": 36.1250697,
+            "longitude": -115.20559639999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Guided Hike with a Bureau of Land Management Ranger at Sloan Canyon Petroglyph Site",
+            "locationName": "Sloan Canyon",
+            "time": "Feb 22 at 9:00 AM",
+            "description": "Join a guided hike on the Petroglyph Trail in Sloan Canyon National Conservation Area to learn about Mojave Desert plants, wildlife, and local history with a Park Ranger.",
+            "coolFactor": "Ranger-led desert exploration",
+            "latitude": 35.9106064,
+            "longitude": -115.0664119,
+            "showOnMap": false
+        },
+        {
+            "eventName": "February Bird Walk!",
+            "locationName": "Lee Pascal Memorial Rose Garden",
+            "time": "Feb 23 at 8:00 AM",
+            "description": "Join UNLV BCC for a monthly bird walk on campus to learn about local birds and species identification. Binoculars are provided.",
+            "coolFactor": "Discover campus birdlife",
+            "latitude": 36.1094023,
+            "longitude": -115.13921409999998,
+            "showOnMap": false
+        },
+        {
+            "eventName": "It's Just Coffee: Mental Health in America",
+            "locationName": "Student Union Room 316",
+            "time": "Feb 23 at 10:30 AM",
+            "description": "Participate in a dialogue about mental health in America, sharing viewpoints openly with a facilitator and no expertise required. Coffee, tea, and snacks provided.",
+            "coolFactor": "Dialogue with coffee",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "CAEO + Writing Center Scholarship Workshop",
+            "locationName": "Online",
+            "time": "Feb 23 at 2:00 PM",
+            "description": "Join the Writing Center and Center for Academic Enrichment and Outreach to prepare for writing scholarship application essays.",
+            "coolFactor": "Boost scholarship applications",
+            "latitude": 36.1112623,
+            "longitude": -115.13709010000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "UNLV PAD x Princeton Review: LSAT Reading Comprehension Workshop",
+            "locationName": "Online",
+            "time": "Feb 23 at 5:30 PM",
+            "description": "Attend an expert-led workshop to prepare for the LSAT Reading Comprehension section with sample questions.",
+            "coolFactor": "Ace LSAT reading prep",
+            "latitude": 36.1112623,
+            "longitude": -115.13709010000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Black Mini Con \ud83c\udff3\ufe0f\u200d\ud83c\udf08\ud83d\udda4\u2728",
+            "locationName": "Marjorie Barrick Museum of Art",
+            "time": "Feb 24 at 11:00 AM",
+            "description": "A mini conference featuring interactive sessions on Black LGBTQIA+ identity, mental health, resilience, and belonging. Lunch is provided.",
+            "coolFactor": "Celebrate Black LGBTQIA+ identity",
+            "latitude": 36.1069666,
+            "longitude": -115.1410679,
+            "showOnMap": false
+        },
+        {
+            "eventName": "\"Resolving One-on-One Conflicts (Workplace)\"'",
+            "locationName": "BEH 240",
+            "time": "Feb 24 at 2:00 PM",
+            "description": "Learn techniques to resolve workplace conflicts with peers, supervisors, or subordinates in this interactive session.",
+            "coolFactor": "Master conflict resolution",
+            "latitude": 36.1079258,
+            "longitude": -115.14276919999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Mindfulness Arts and Crafts Corner",
+            "locationName": "SRWC Room 1502",
+            "time": "Feb 24 at 2:00 PM",
+            "description": "A calming space to slow down, breathe, and express yourself through soothing arts and crafts.",
+            "coolFactor": "Creative relaxation space",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Mindful Moments: Weekly Guided Meditation",
+            "locationName": "SRWC Room 1502",
+            "time": "Feb 24 at 4:30 PM",
+            "description": "Join for weekly guided meditation to relax and center yourself. No registration is needed.",
+            "coolFactor": "Weekly meditation sessions",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Word Games Japanese Student Alliance General Meeting",
+            "locationName": "Student Union",
+            "time": "Feb 24 at 5:00 PM",
+            "description": "Play Word Wolf and E-Shiritori games with the Japanese Student Alliance. Knowledge of Japanese is not required.",
+            "coolFactor": "Cultural word games fun",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "ALPFA x Eide Bailly Early Career Panel",
+            "locationName": "Philip J. Cohen Theatre",
+            "time": "Feb 24 at 6:00 PM",
+            "description": "Hear from professionals in accounting and business about internships, career growth, and building a long-term career.",
+            "coolFactor": "Network with professionals",
+            "latitude": 36.1067265,
+            "longitude": -115.13845130000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Tuesday kick!",
+            "locationName": "Student Recreation and Wellness Center",
+            "time": "Feb 24 at 6:30 PM",
+            "description": "Join to hone balance, coordination, and power through fun activities. Check WhatsApp for exact plans.",
+            "coolFactor": "Fun fitness and friendships",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "General Study Abroad Scholarship Workshop",
+            "locationName": "BEH 240",
+            "time": "Feb 25 at 10:00 AM",
+            "description": "Drop by to find funding and get tips on applying for study abroad scholarships, with essay and application review.",
+            "coolFactor": "Fund your abroad journey",
+            "latitude": 36.1079258,
+            "longitude": -115.14276919999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "UNLV Career & Internship Fair Spring 2026",
+            "locationName": "Thomas & Mack Center",
+            "time": "Feb 25 at 9:00 AM",
+            "description": "Meet employers from various industries hiring for full-time, part-time, and internship positions. Pre-register on Handshake.",
+            "coolFactor": "Land your dream job",
+            "latitude": 36.104808399999996,
+            "longitude": -115.14404599999997,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Recovery Curious",
+            "locationName": "CAPS SSC-A Suite 143",
+            "time": "Feb 25 at 1:00 PM",
+            "description": "Join virtually or in-person to share questions or receive support around substance use and recovery.",
+            "coolFactor": "Supportive recovery space",
+            "latitude": null,
+            "longitude": null,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Artvism Crafternoon",
+            "locationName": "Student Union Room 316",
+            "time": "Feb 25 at 1:00 PM",
+            "description": "Paint a mini canvas while learning about artivism\u2014the intersection of art and activism. All materials provided.",
+            "coolFactor": "Create art for change",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Road to MIS Leadership",
+            "locationName": "CHB A112",
+            "time": "Feb 25 at 4:00 PM",
+            "description": "Explore becoming a board member or RSO leader in MIS. Counts as IS professional participation.",
+            "coolFactor": "Step into leadership",
+            "latitude": 36.1058631,
+            "longitude": -115.1424105,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Town Hall",
+            "locationName": "HC Conference Room",
+            "time": "Feb 25 at 4:45 PM",
+            "description": "Recap events and share your thoughts during an open floor portion.",
+            "coolFactor": "Voice your ideas",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "I Guess We'll See You Next Lifetime",
+            "locationName": "Echo 1055 Lounge",
+            "time": "Feb 25 at 6:00 PM",
+            "description": "Send off Black History Month by making perfume, enjoying soul food, and listening to neo soul music.",
+            "coolFactor": "Perfume and soul food",
+            "latitude": 36.100668399999996,
+            "longitude": -115.141212,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Newman Night: Hang With Novices!",
+            "locationName": "UNLV Newman Center",
+            "time": "Feb 25 at 4:30 PM",
+            "description": "Join for faith-filled activities with Dominican Novices, including games and liturgy of the hours. Free food provided.",
+            "coolFactor": "Faith and free food",
+            "latitude": 36.1034091,
+            "longitude": -115.1395518,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Free Faculty and Staff Week",
+            "locationName": "Student Recreation and Wellness Center",
+            "time": "Feb 19 at 6:00 AM",
+            "description": "UNLV Faculty and Staff get free admission to the SRWC all week from February 19th to 25th.",
+            "coolFactor": "Free gym access",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Mindful Moments: Weekly Guided Meditation",
+            "locationName": "SRWC Room 1502",
+            "time": "Feb 26 at 11:30 AM",
+            "description": "Join for weekly guided meditation to relax and center yourself. No registration is needed.",
+            "coolFactor": "Weekly meditation sessions",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Spring 26 First General Meeting",
+            "locationName": "UNLV Community Garden",
+            "time": "Feb 26 at 2:00 PM",
+            "description": "Rebel Roots Garden Club informational meeting to discuss club info and semester plans at the community garden.",
+            "coolFactor": "Grow with garden club",
+            "latitude": 36.1137653,
+            "longitude": -115.144472,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Narcan Training",
+            "locationName": "SRWC Room 1502",
+            "time": "Feb 26 at 3:00 PM",
+            "description": "Learn opioid overdose awareness and response, including how to use Narcan. Free Narcan, CPR mask, and first aid kit provided.",
+            "coolFactor": "Save lives training",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Study Abroad Information Session",
+            "locationName": "Online",
+            "time": "Feb 26 at 3:30 PM",
+            "description": "Hear from \u00c1ngela Gutierrez about her study abroad experience in Thailand and get tips for global academic opportunities.",
+            "coolFactor": "Global adventure insights",
+            "latitude": 36.1112623,
+            "longitude": -115.13709010000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "UNLV ROAR Game Night ",
+            "locationName": "SU 209",
+            "time": "Feb 26 at 3:00 PM",
+            "description": "Enjoy cultural games, interactive activities, and diverse foods while connecting with fellow Rebels.",
+            "coolFactor": "Cultural games and food",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Next Chapter: Academic Recovery",
+            "locationName": "Rebel Learning Lounge",
+            "time": "Feb 26 at 5:30 PM",
+            "description": "Reset and refocus with academic success coaches to build a comeback plan after a rough semester. Snacks provided.",
+            "coolFactor": "Academic comeback strategies",
+            "latitude": 36.1066737,
+            "longitude": -115.14125170000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Multicultural Fest",
+            "locationName": "RLL 101",
+            "time": "Feb 26 at 6:00 PM",
+            "description": "Join a potluck-style event to embrace diverse cultures in the Honors College through food and community.",
+            "coolFactor": "Taste global cultures",
+            "latitude": 36.10856630000001,
+            "longitude": -115.13979990000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Snacks and Skills : Good Trouble, Necessary Trouble",
+            "locationName": "SU 219",
+            "time": "Feb 11 at 5:30 PM",
+            "description": "Celebrate Black History Month with a panel on Black resistance, civil disobedience, and collective action inspired by John Lewis.",
+            "coolFactor": "Activism and snacks",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Catholic Charities Food Serving ",
+            "locationName": "Student Union",
+            "time": "Feb 27 at 8:30 AM",
+            "description": "Volunteer to serve 300-500 meals to individuals experiencing homelessness. Free food provided for volunteers.",
+            "coolFactor": "Serve community meals",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Historic Westside Bus Tour \ud83d\ude8c\ud83d\udda4\ud83c\udfd8\ufe0f",
+            "locationName": "SU 228",
+            "time": "Feb 27 at 10:00 AM",
+            "description": "Take a guided bus tour highlighting the history and culture of Black communities in Las Vegas' Historic Westside.",
+            "coolFactor": "Explore local history",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Friday kick!",
+            "locationName": "Student Recreation and Wellness Center",
+            "time": "Feb 27 at 6:30 PM",
+            "description": "Join for fitness activities focusing on balance and coordination. Check WhatsApp for details.",
+            "coolFactor": "Friday fitness fun",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Puppies & Pizza - Grad Students & Alumni",
+            "locationName": "Student Union Courtyard",
+            "time": "Feb 28 at 12:00 PM",
+            "description": "A family-friendly event for graduate students and alumni to network with puppies and enjoy pizza.",
+            "coolFactor": "Puppies and pizza party",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "AB Immersion: Indigenous Sovereignty",
+            "locationName": "Parking Lot D",
+            "time": "Feb 28 at 7:00 AM",
+            "description": "Dive into Indigenous histories and rights with a trip to Overton for a cultural celebration and Valley of Fire reflection.",
+            "coolFactor": "Indigenous cultural immersion",
+            "latitude": 36.1065408,
+            "longitude": -115.1377011,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Feed My Sheep",
+            "locationName": "UNLV Newman Center",
+            "time": "Mar 1 at 4:00 PM",
+            "description": "Volunteer to make PB&J sandwiches for the homeless on the first Sunday of each month.",
+            "coolFactor": "Monthly sandwich service",
+            "latitude": 36.1034091,
+            "longitude": -115.1395518,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Effective Communication #2 - Spring 26 Success Series ",
+            "locationName": "Online",
+            "time": "Mar 2 at 3:00 PM",
+            "description": "Learn clear communication strategies for success, including writing tips from the UNLV Writing Center.",
+            "coolFactor": "Master effective communication",
+            "latitude": 36.1112623,
+            "longitude": -115.13709010000001,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Spring Student Union Showcase",
+            "locationName": "Student Union",
+            "time": "Mar 2 at 8:00 AM",
+            "description": "Explore event spaces and services with workshops on planning, catering, and marketing for events.",
+            "coolFactor": "Plan epic events",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Panda Express Fundraiser",
+            "locationName": "Panda Express",
+            "time": "Mar 2 at 12:00 AM",
+            "description": "Eat at Panda Express to support the Hospitality Collective fundraiser.",
+            "coolFactor": "Eat for a cause",
+            "latitude": 36.1058032,
+            "longitude": -115.13839309999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Leadership Link Up : Spongebob Squarepants - When Plankton Pushes Your Buttons ",
+            "locationName": "SU 219",
+            "time": "Mar 3 at 11:00 AM",
+            "description": "Learn to handle conflict with grace by identifying triggers and practicing resolution strategies themed with Spongebob.",
+            "coolFactor": "Conflict resolution fun",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Study Breakers - Learn to Knit ",
+            "locationName": "SRWC 1020",
+            "time": "Mar 3 at 1:00 PM",
+            "description": "Take a break to learn basic knitting techniques in a relaxed, stress-free environment. No experience needed.",
+            "coolFactor": "Knit and unwind",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Mindful Moments: Weekly Guided Meditation",
+            "locationName": "SRWC Room 1502",
+            "time": "Mar 3 at 4:30 PM",
+            "description": "Join for weekly guided meditation to relax and center yourself. No registration is needed.",
+            "coolFactor": "Weekly meditation sessions",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Monthly General Meeting!",
+            "locationName": "TBD",
+            "time": "Mar 3 at 4:00 PM",
+            "description": "Learn about the UNLV Birding and Conservation Club, upcoming events, and research opportunities.",
+            "coolFactor": "Connect with nature",
+            "latitude": 36.1100583,
+            "longitude": -115.14168229999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Tuesday kick!",
+            "locationName": "Student Recreation and Wellness Center",
+            "time": "Mar 3 at 6:30 PM",
+            "description": "Join for fitness activities focusing on balance and coordination. Check WhatsApp for details.",
+            "coolFactor": "Tuesday fitness fun",
+            "latitude": 36.1030809,
+            "longitude": -115.14203989999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Study Breakers - Paint and Flow ",
+            "locationName": "SU 209",
+            "time": "Mar 4 at 12:00 PM",
+            "description": "Unplug with a guided, free-flow painting session to release tension and express creativity.",
+            "coolFactor": "Paint and relax",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "REB Event",
+            "locationName": "Pida Plaza",
+            "time": "Mar 4 at 11:00 AM",
+            "description": "Celebrate the Spring semester with REB offering free food, activities, and more.",
+            "coolFactor": "Free food fest",
+            "latitude": 36.1064197,
+            "longitude": -115.13902879999999,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Rebel Vets General Body Meeting - Wednesday, March 4, 2026 - SU 218",
+            "locationName": "Student Union",
+            "time": "Mar 4 at 12:00 PM",
+            "description": "Join military-connected students for a meeting with free food, swag, and planning for Operation Battle Born.",
+            "coolFactor": "Veterans community connect",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Spring 2026 Research Matching",
+            "locationName": "SU Ballroom AB",
+            "time": "Mar 4 at 5:00 PM",
+            "description": "Talk to research assistants and graduate students about joining labs and research opportunities on campus.",
+            "coolFactor": "Find research opportunities",
+            "latitude": 36.105973299999995,
+            "longitude": -115.1384981,
+            "showOnMap": false
+        },
+        {
+            "eventName": "Smells Like Herstory",
+            "locationName": "Echo 1055 Lounge",
+            "time": "Mar 4 at 6:00 PM",
+            "description": "Kick off Women's History Month by discussing women's roles in perfume and making scents inspired by women.",
+            "coolFactor": "Celebrate women in perfume",
+            "latitude": 36.100668399999996,
+            "longitude": -115.141212,
+            "showOnMap": false
+        }
+    ]
+}
