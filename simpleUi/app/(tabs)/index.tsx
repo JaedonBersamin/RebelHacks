@@ -9,6 +9,8 @@ import {
   Dimensions,
   Alert,
   ActivityIndicator,
+  Image,
+  ScrollView,
 } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
@@ -17,16 +19,75 @@ import Svg, { Circle, Defs, RadialGradient, Stop } from "react-native-svg";
 
 import eventData from "./map_ready_events.json";
 
-// 1. Initialize Supabase connecting to your cloud database
 const supabase = createClient(
   process.env.EXPO_PUBLIC_SUPABASE_URL!,
   process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!,
 );
 
+const { width } = Dimensions.get("window");
+
+// ─────────────────────────────────────────
+// EVENT CARD COMPONENT
+// ─────────────────────────────────────────
+const EventCard = ({
+  item,
+  onViewMap,
+}: {
+  item: any;
+  onViewMap: () => void;
+}) => (
+  <View style={styles.card}>
+    {/* Image */}
+    <View style={styles.cardImageContainer}>
+      {item.imageUrl ? (
+        <Image
+          source={{ uri: item.imageUrl }}
+          style={styles.cardImage}
+          resizeMode="cover"
+        />
+      ) : (
+        <View style={styles.cardImagePlaceholder} />
+      )}
+      <View style={styles.categoryBadge}>
+        <Text style={styles.categoryText}>
+          {item.category || item.coolFactor || "Event"}
+        </Text>
+      </View>
+    </View>
+
+    {/* Details */}
+    <View style={styles.cardBody}>
+      <Text style={styles.cardTitle}>{item.eventName || item.name}</Text>
+
+      <View style={styles.cardMeta}>
+        <Text style={styles.metaIcon}>📅</Text>
+        <Text style={styles.metaText}>{item.date}</Text>
+      </View>
+
+      <View style={styles.cardMeta}>
+        <Text style={styles.metaIcon}>🕐</Text>
+        <Text style={styles.metaText}>{item.time}</Text>
+      </View>
+
+      {(item.showOnMap || item.latitude) && (
+        <TouchableOpacity style={styles.viewMapButton} onPress={onViewMap}>
+          <Text style={styles.viewMapIcon}>📍</Text>
+          <Text style={styles.viewMapText}>View on Map</Text>
+        </TouchableOpacity>
+      )}
+    </View>
+  </View>
+);
+
+// ─────────────────────────────────────────
+// MAIN APP
+// ─────────────────────────────────────────
 export default function App() {
   const [locationPermission, setLocationPermission] = useState(null);
   const [hotSpots, setHotSpots] = useState([]);
   const [isReporting, setIsReporting] = useState(false);
+  const [showMap, setShowMap] = useState(false);
+  const [focusedEvent, setFocusedEvent] = useState(null);
 
   const liveEvents = eventData.events || [];
   const activeMapEvents = liveEvents.filter(
@@ -40,18 +101,15 @@ export default function App() {
     longitudeDelta: 0.015,
   };
 
-
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       setLocationPermission(status === "granted");
 
-      // Fetch all existing hot spots from Supabase when the app opens
-      const { data, error } = await supabase.from("hotspots").select("*");
+      const { data } = await supabase.from("hotspots").select("*");
       if (data) setHotSpots(data);
     })();
 
-    // Subscribe to real-time changes
     const subscription = supabase
       .channel("public:hotspots")
       .on(
@@ -66,25 +124,17 @@ export default function App() {
     return () => supabase.removeChannel(subscription);
   }, []);
 
-//second UseEffect
-
-  // JOB 2:  1-MINUTE
-
   useEffect(() => {
     const sweepRadar = setInterval(() => {
-      // Temporarily set to 1 minute for testing (1 * 60 * 1000)
-      const oneMinAgo = new Date(Date.now() - 20 * 60 * 1000);
-
+      const twentyMinsAgo = new Date(Date.now() - 20 * 60 * 1000);
       setHotSpots((currentSpots) =>
         currentSpots.filter((spot) => {
-          // Fallback just in case an old "04:32 PM" string is still in the database
           if (!spot.timestamp || !spot.timestamp.includes("T")) return false;
-
           const pinTime = new Date(spot.timestamp);
-          return pinTime > twentyMinsAgo; // Keep only if newer than 20 mins
+          return pinTime > twentyMinsAgo;
         }),
       );
-    }, 10000); // Wakes up every 10 seconds now
+    }, 10000);
 
     return () => clearInterval(sweepRadar);
   }, []);
@@ -107,11 +157,10 @@ export default function App() {
       const newWarningPin = {
         latitude: currentLocation.coords.latitude,
         longitude: currentLocation.coords.longitude,
-        timestamp: new Date().toISOString(), // Raw computer time for the database
+        timestamp: new Date().toISOString(),
       };
 
       const { error } = await supabase.from("hotspots").insert([newWarningPin]);
-
       if (error) throw error;
 
       Alert.alert("Radar Updated", "Mark Successful!");
@@ -123,43 +172,28 @@ export default function App() {
     }
   };
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.card}>
-      <View style={styles.cardHeader}>
-        <Text style={styles.eventTitle}>{item.eventName}</Text>
-        {item.showOnMap && (
-          <View style={styles.liveBadge}>
-            <Text style={styles.liveText}>LIVE</Text>
-          </View>
-        )}
-      </View>
-      <Text style={styles.description} numberOfLines={2}>
-        {item.description}
-      </Text>
-      <View style={styles.cardFooter}>
-        <Text style={styles.eventDetails}>
-          {item.time} • {item.locationName}
-        </Text>
-        <Text style={styles.coolBadge}>{item.coolFactor}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Campus Intel</Text>
-      </View>
-
-      <View style={styles.mapContainer}>
+  // ─────────────────────────────────────────
+  // MAP VIEW
+  // ─────────────────────────────────────────
+  if (showMap) {
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
         <MapView
           provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          initialRegion={UNLV_REGION}
+          style={{ flex: 1 }}
+          initialRegion={
+            focusedEvent
+              ? {
+                  latitude: focusedEvent.latitude,
+                  longitude: focusedEvent.longitude,
+                  latitudeDelta: 0.005,
+                  longitudeDelta: 0.005,
+                }
+              : UNLV_REGION
+          }
           showsUserLocation={locationPermission}
           showsMyLocationButton={true}
         >
-          {/* STANDARD EVENTS */}
           {activeMapEvents.map((event, index) => (
             <Marker
               key={`event-${index}`}
@@ -169,21 +203,18 @@ export default function App() {
               }}
               title={event.eventName}
               description={event.coolFactor}
-              pinColor="#E53E3E"
+              pinColor="#6366F1"
             />
           ))}
 
-          {/* HOT SPOTS */}
           {hotSpots.map((spot, index) => {
-            // Format the raw database string back into human time (e.g., "04:32 PM")
             let displayTime = "Recently";
-            if (spot.timestamp && spot.timestamp.includes("T")) {
+            if (spot.timestamp?.includes("T")) {
               displayTime = new Date(spot.timestamp).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
               });
             }
-
             return (
               <Marker
                 key={`hotspot-${spot.id || index}`}
@@ -244,6 +275,18 @@ export default function App() {
           })}
         </MapView>
 
+        {/* Back button */}
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => {
+            setShowMap(false);
+            setFocusedEvent(null);
+          }}
+        >
+          <Text style={styles.backButtonText}>← Back</Text>
+        </TouchableOpacity>
+
+        {/* Report button */}
         <TouchableOpacity
           style={styles.reportButton}
           onPress={handleReportSolicitor}
@@ -255,45 +298,262 @@ export default function App() {
             <Text style={styles.reportButtonText}>⚠️ Mark Hot Spot</Text>
           )}
         </TouchableOpacity>
+      </SafeAreaView>
+    );
+  }
+
+  // ─────────────────────────────────────────
+  // HOME VIEW
+  // ─────────────────────────────────────────
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.headerTitle}>EventFinder</Text>
+          <Text style={styles.headerSubtitle}>Discover events near you</Text>
+        </View>
+        <View style={styles.headerIcon}>
+          <Text style={{ fontSize: 22 }}>📍</Text>
+        </View>
       </View>
 
+      {/* Events List */}
       <FlatList
         data={liveEvents}
-        keyExtractor={(item, index) => `${item.eventName}-${index}`}
-        renderItem={renderItem}
+        keyExtractor={(item, index) =>
+          `${item.eventName || item.name}-${index}`
+        }
         contentContainerStyle={styles.listContainer}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Upcoming Events</Text>
+            <Text style={styles.sectionSubtitle}>
+              {liveEvents.length} events happening soon
+            </Text>
+          </View>
+        }
+        renderItem={({ item }) => (
+          <EventCard
+            item={item}
+            onViewMap={() => {
+              setFocusedEvent(item);
+              setShowMap(true);
+            }}
+          />
+        )}
       />
+
+      {/* Fixed Bottom Button */}
+      <View style={styles.bottomBar}>
+        <TouchableOpacity
+          style={styles.viewAllButton}
+          onPress={() => setShowMap(true)}
+        >
+          <Text style={styles.viewAllIcon}>🗺️</Text>
+          <Text style={styles.viewAllText}>View All Events on Map</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
 
+// ─────────────────────────────────────────
+// STYLES
+// ─────────────────────────────────────────
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F5F5F4" },
+  container: {
+    flex: 1,
+    backgroundColor: "#F0F4FF",
+  },
+
+  // Header
   header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: "#E5E5E5",
     backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#E5E7EB",
   },
-  headerText: {
+  headerTitle: {
     fontSize: 24,
     fontWeight: "800",
-    color: "#2D2D2A",
+    color: "#4F46E5",
     letterSpacing: -0.5,
   },
-  mapContainer: {
-    height: Dimensions.get("window").height * 0.45,
-    width: "100%",
-    borderBottomWidth: 2,
-    borderBottomColor: "#E5E5E5",
+  headerSubtitle: {
+    fontSize: 13,
+    color: "#6B7280",
+    marginTop: 2,
+  },
+  headerIcon: {
+    backgroundColor: "#EEF2FF",
+    borderRadius: 50,
+    padding: 12,
+  },
+
+  // Section
+  sectionHeader: {
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#111827",
+  },
+  sectionSubtitle: {
+    fontSize: 13,
+    color: "#6B7280",
+    marginTop: 4,
+  },
+
+  // List
+  listContainer: {
+    padding: 20,
+    paddingBottom: 100,
+  },
+
+  // Card
+  card: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    overflow: "hidden",
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  cardImageContainer: {
+    height: 180,
     position: "relative",
   },
-  map: { flex: 1 },
+  cardImage: {
+    width: "100%",
+    height: "100%",
+  },
+  cardImagePlaceholder: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#E5E7EB",
+  },
+  categoryBadge: {
+    position: "absolute",
+    top: 12,
+    left: 12,
+    backgroundColor: "rgba(255,255,255,0.95)",
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 20,
+  },
+  categoryText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#111827",
+  },
+  cardBody: {
+    padding: 16,
+    gap: 8,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#111827",
+    marginBottom: 4,
+  },
+  cardMeta: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  metaIcon: {
+    fontSize: 14,
+  },
+  metaText: {
+    fontSize: 14,
+    color: "#6B7280",
+  },
+  viewMapButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+    marginTop: 8,
+    paddingVertical: 12,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#E5E7EB",
+  },
+  viewMapIcon: {
+    fontSize: 14,
+  },
+  viewMapText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#374151",
+  },
+
+  // Bottom bar
+  bottomBar: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 16,
+    paddingBottom: 30,
+    backgroundColor: "transparent",
+  },
+  viewAllButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    backgroundColor: "#4F46E5",
+    paddingVertical: 16,
+    borderRadius: 16,
+    shadowColor: "#4F46E5",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  viewAllIcon: {
+    fontSize: 18,
+  },
+  viewAllText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+
+  // Map overlays
+  backButton: {
+    position: "absolute",
+    top: 60,
+    left: 16,
+    backgroundColor: "#FFFFFF",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  backButtonText: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#111827",
+  },
   reportButton: {
     position: "absolute",
-    bottom: 20,
+    bottom: 40,
     alignSelf: "center",
     backgroundColor: "#1A1A1A",
     paddingVertical: 14,
@@ -312,66 +572,6 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontSize: 16,
     letterSpacing: 0.5,
-  },
-  listContainer: { padding: 20, gap: 16 },
-  card: {
-    backgroundColor: "#FFFFFF",
-    padding: 20,
-    borderRadius: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  cardHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 8,
-  },
-  eventTitle: {
-    flex: 1,
-    fontSize: 18,
-    fontWeight: "700",
-    color: "#1A1A1A",
-    marginRight: 10,
-  },
-  liveBadge: {
-    backgroundColor: "#22C55E",
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 6,
-  },
-  liveText: {
-    color: "#FFFFFF",
-    fontSize: 10,
-    fontWeight: "900",
-    letterSpacing: 1,
-  },
-  description: {
-    fontSize: 14,
-    color: "#666666",
-    marginBottom: 16,
-    lineHeight: 20,
-  },
-  cardFooter: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  eventDetails: { fontSize: 13, color: "#888888", fontWeight: "600", flex: 1 },
-  coolBadge: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#4A4A4A",
-    backgroundColor: "#F0F0F0",
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 8,
-    overflow: "hidden",
-    maxWidth: "45%",
-    textAlign: "center",
   },
   snapMapInnerCircle: {
     width: 16,
