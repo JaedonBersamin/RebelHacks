@@ -24,19 +24,120 @@ const supabase = createClient(
   process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!,
 );
 
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
+
+// ─────────────────────────────────────────
+// EVENT DETAIL FULL SCREEN
+// ─────────────────────────────────────────
+const EventDetail = ({
+  item,
+  onClose,
+  onViewMap,
+}: {
+  item: any;
+  onClose: () => void;
+  onViewMap: () => void;
+}) => {
+  const date = item.time?.split(" at ")[0] || "";
+  const time = item.time?.split(" at ")[1] || item.time || "";
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+      <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+        {/* Hero Image */}
+        <View style={detail.imageContainer}>
+          {item.imageUrl ? (
+            <Image
+              source={{ uri: item.imageUrl }}
+              style={detail.heroImage}
+              resizeMode="cover"
+            />
+          ) : (
+            <View style={detail.heroPlaceholder}>
+              <Text style={{ fontSize: 64 }}>🎉</Text>
+            </View>
+          )}
+          <View style={detail.imageOverlay} />
+          <TouchableOpacity style={detail.backBtn} onPress={onClose}>
+            <Text style={detail.backBtnText}>←</Text>
+          </TouchableOpacity>
+          <View style={detail.heroBadge}>
+            <Text style={detail.heroBadgeText}>
+              {item.category || item.coolFactor || "Event"}
+            </Text>
+          </View>
+        </View>
+
+        {/* Content */}
+        <View style={detail.content}>
+          <Text style={detail.title}>{item.eventName || item.name}</Text>
+
+          {/* Date + Time pills */}
+          <View style={detail.pillRow}>
+            <View style={detail.pill}>
+              <Text style={detail.pillIcon}>📅</Text>
+              <Text style={detail.pillText}>{date}</Text>
+            </View>
+            <View style={detail.pill}>
+              <Text style={detail.pillIcon}>🕐</Text>
+              <Text style={detail.pillText}>{time}</Text>
+            </View>
+          </View>
+
+          {/* Location */}
+          {item.locationName && (
+            <View style={detail.locationRow}>
+              <Text style={detail.pillIcon}>📍</Text>
+              <Text style={detail.locationText}>{item.locationName}</Text>
+            </View>
+          )}
+
+          <View style={detail.divider} />
+
+          {/* Highlight */}
+          {item.coolFactor && (
+            <View style={detail.highlight}>
+              <Text style={detail.highlightIcon}>⭐</Text>
+              <Text style={detail.highlightText}>{item.coolFactor}</Text>
+            </View>
+          )}
+
+          {/* Description */}
+          {item.description && (
+            <View style={detail.section}>
+              <Text style={detail.sectionTitle}>About this event</Text>
+              <Text style={detail.description}>{item.description}</Text>
+            </View>
+          )}
+
+          {/* Map button */}
+          {(item.showOnMap || item.latitude) && (
+            <TouchableOpacity style={detail.mapButton} onPress={onViewMap}>
+              <Text style={detail.mapButtonIcon}>🗺️</Text>
+              <Text style={detail.mapButtonText}>View on Map</Text>
+            </TouchableOpacity>
+          )}
+
+          <View style={{ height: 40 }} />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 // ─────────────────────────────────────────
 // EVENT CARD COMPONENT
 // ─────────────────────────────────────────
 const EventCard = ({
   item,
+  onPress,
   onViewMap,
 }: {
   item: any;
+  onPress: () => void;
   onViewMap: () => void;
 }) => (
-  <View style={styles.card}>
+  <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.92}>
     {/* Image */}
     <View style={styles.cardImageContainer}>
       {item.imageUrl ? (
@@ -75,13 +176,18 @@ const EventCard = ({
       </View>
 
       {(item.showOnMap || item.latitude) && (
-        <TouchableOpacity style={styles.viewMapButton} onPress={onViewMap}>
-          <Text style={styles.viewMapIcon}>📍</Text>
+        <TouchableOpacity
+          style={styles.viewMapButton}
+          onPress={(e) => {
+            e.stopPropagation?.();
+            onViewMap();
+          }}
+        >
           <Text style={styles.viewMapText}>View on Map</Text>
         </TouchableOpacity>
       )}
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 // ─────────────────────────────────────────
@@ -93,6 +199,7 @@ export default function App() {
   const [isReporting, setIsReporting] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [focusedEvent, setFocusedEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const liveEvents = eventData.events || [];
   const activeMapEvents = liveEvents.filter(
@@ -140,7 +247,6 @@ export default function App() {
         }),
       );
     }, 10000);
-
     return () => clearInterval(sweepRadar);
   }, []);
 
@@ -152,22 +258,18 @@ export default function App() {
       );
       return;
     }
-
     setIsReporting(true);
     try {
       const currentLocation = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Balanced,
       });
-
       const newWarningPin = {
         latitude: currentLocation.coords.latitude,
         longitude: currentLocation.coords.longitude,
         timestamp: new Date().toISOString(),
       };
-
       const { error } = await supabase.from("hotspots").insert([newWarningPin]);
       if (error) throw error;
-
       Alert.alert("Radar Updated", "Mark Successful!");
     } catch (error) {
       Alert.alert("Error", "Could not connect to the radar network.");
@@ -176,6 +278,23 @@ export default function App() {
       setIsReporting(false);
     }
   };
+
+  // ─────────────────────────────────────────
+  // EVENT DETAIL VIEW
+  // ─────────────────────────────────────────
+  if (selectedEvent) {
+    return (
+      <EventDetail
+        item={selectedEvent}
+        onClose={() => setSelectedEvent(null)}
+        onViewMap={() => {
+          setFocusedEvent(selectedEvent);
+          setSelectedEvent(null);
+          setShowMap(true);
+        }}
+      />
+    );
+  }
 
   // ─────────────────────────────────────────
   // MAP VIEW
@@ -280,7 +399,6 @@ export default function App() {
           })}
         </MapView>
 
-        {/* Back button */}
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
@@ -291,7 +409,6 @@ export default function App() {
           <Text style={styles.backButtonText}>← Back</Text>
         </TouchableOpacity>
 
-        {/* Report button */}
         <TouchableOpacity
           style={styles.reportButton}
           onPress={handleReportSolicitor}
@@ -361,6 +478,7 @@ export default function App() {
         renderItem={({ item }) => (
           <EventCard
             item={item}
+            onPress={() => setSelectedEvent(item)}
             onViewMap={() => {
               setFocusedEvent(item);
               setShowMap(true);
@@ -375,7 +493,6 @@ export default function App() {
           style={styles.viewAllButton}
           onPress={() => setShowMap(true)}
         >
-          <Text style={styles.viewAllIcon}>🗺️</Text>
           <Text style={styles.viewAllText}>View All Events on Map</Text>
         </TouchableOpacity>
       </View>
@@ -384,15 +501,176 @@ export default function App() {
 }
 
 // ─────────────────────────────────────────
-// STYLES
+// DETAIL STYLES
+// ─────────────────────────────────────────
+const detail = StyleSheet.create({
+  imageContainer: {
+    height: 280,
+    position: "relative",
+  },
+  heroImage: {
+    width: "100%",
+    height: "100%",
+  },
+  heroPlaceholder: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#EEF2FF",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  imageOverlay: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 80,
+    backgroundColor: "transparent",
+  },
+  backBtn: {
+    position: "absolute",
+    top: 16,
+    left: 16,
+    backgroundColor: "rgba(255,255,255,0.9)",
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 20,
+  },
+  backBtnText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#111827",
+  },
+  heroBadge: {
+    position: "absolute",
+    bottom: 16,
+    left: 16,
+    backgroundColor: "rgba(255,255,255,0.95)",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+  heroBadgeText: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#111827",
+  },
+  content: {
+    padding: 24,
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: "800",
+    color: "#111827",
+    marginBottom: 16,
+    lineHeight: 32,
+  },
+  pillRow: {
+    flexDirection: "row",
+    gap: 10,
+    marginBottom: 12,
+  },
+  pill: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    backgroundColor: "#EEF2FF",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 12,
+  },
+  pillIcon: {
+    fontSize: 14,
+  },
+  pillText: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#4F46E5",
+  },
+  locationRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    marginBottom: 12,
+  },
+  locationText: {
+    fontSize: 14,
+    color: "#6B7280",
+    fontWeight: "500",
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#F3F4F6",
+    marginVertical: 20,
+  },
+  highlight: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 10,
+    backgroundColor: "#FFFBEB",
+    padding: 16,
+    borderRadius: 14,
+    marginBottom: 20,
+    borderLeftWidth: 3,
+    borderLeftColor: "#F59E0B",
+  },
+  highlightIcon: {
+    fontSize: 16,
+    marginTop: 1,
+  },
+  highlightText: {
+    flex: 1,
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#92400E",
+    lineHeight: 20,
+  },
+  section: {
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    fontSize: 17,
+    fontWeight: "700",
+    color: "#111827",
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 15,
+    color: "#4B5563",
+    lineHeight: 24,
+  },
+  mapButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    backgroundColor: "#4F46E5",
+    paddingVertical: 16,
+    borderRadius: 16,
+    shadowColor: "#4F46E5",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  mapButtonIcon: {
+    fontSize: 18,
+  },
+  mapButtonText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+});
+
+// ─────────────────────────────────────────
+// MAIN STYLES
 // ─────────────────────────────────────────
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F0F4FF",
   },
-
-  // Header
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -419,8 +697,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     padding: 12,
   },
-
-  // Section
   sectionHeader: {
     marginBottom: 16,
   },
@@ -434,14 +710,10 @@ const styles = StyleSheet.create({
     color: "#6B7280",
     marginTop: 4,
   },
-
-  // List
   listContainer: {
     padding: 20,
     paddingBottom: 100,
   },
-
-  // Card
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
@@ -525,8 +797,6 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#374151",
   },
-
-  // Bottom bar
   bottomBar: {
     position: "absolute",
     bottom: 0,
@@ -558,8 +828,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#FFFFFF",
   },
-
-  // Map overlays
   backButton: {
     position: "absolute",
     top: 60,
