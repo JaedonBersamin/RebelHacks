@@ -61,7 +61,7 @@ export default function App() {
   useEffect(() => {
     const sweepRadar = setInterval(() => {
       // Temporarily set to 1 minute for testing (1 * 60 * 1000)
-      const oneMinAgo = new Date(Date.now() - 1 * 60 * 1000);
+      const oneMinAgo = new Date(Date.now() - 20 * 60 * 1000);
 
       setHotSpots(currentSpots =>
           currentSpots.filter(spot => {
