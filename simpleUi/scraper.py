@@ -33,7 +33,7 @@ def scrape_and_parse_events():
     url = "https://involvementcenter.unlv.edu/api/discovery/event/search"
 
     now_vegas = datetime.now()
-     now_utc_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    now_utc_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
     # FIX 1: Ask for events that END after right now, so we don't miss ongoing events!
     params = {
