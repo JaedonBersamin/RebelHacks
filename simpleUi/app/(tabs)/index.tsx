@@ -11,6 +11,7 @@ import {
   ActivityIndicator,
   Image,
   ScrollView,
+  Modal,
 } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
@@ -138,54 +139,63 @@ const EventCard = ({
   onViewMap: () => void;
 }) => (
   <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.92}>
-    {/* Image */}
-    <View style={styles.cardImageContainer}>
-      {item.imageUrl ? (
-        <Image
-          source={{ uri: item.imageUrl }}
-          style={styles.cardImage}
-          resizeMode="cover"
-        />
-      ) : (
-        <View style={styles.cardImagePlaceholder} />
-      )}
-      <View style={styles.categoryBadge}>
-        <Text style={styles.categoryText}>
-          {item.category || item.coolFactor || "Event"}
-        </Text>
-      </View>
-    </View>
-
-    {/* Details */}
-    <View style={styles.cardBody}>
-      <Text style={styles.cardTitle}>{item.eventName || item.name}</Text>
-
-      <View style={styles.cardMetaRow}>
-        <View style={styles.cardMeta}>
-          <Text style={styles.metaIcon}>📅</Text>
-          <Text style={styles.metaText}>
-            {item.time?.split(" at ")[0] || ""}
-          </Text>
-        </View>
-        <View style={styles.cardMeta}>
-          <Text style={styles.metaIcon}>🕐</Text>
-          <Text style={styles.metaText}>
-            {item.time?.split(" at ")[1] || item.time}
+    <View style={styles.cardInner}>
+      {/* Image */}
+      <View style={styles.cardImageContainer}>
+        {item.imageUrl ? (
+          <Image
+            source={{ uri: item.imageUrl }}
+            style={styles.cardImage}
+            resizeMode="cover"
+          />
+        ) : (
+          <View style={styles.cardImagePlaceholder} />
+        )}
+        <View style={styles.categoryBadge}>
+          <Text style={styles.categoryText}>
+            {item.category || item.coolFactor || "Event"}
           </Text>
         </View>
       </View>
 
-      {(item.showOnMap || item.latitude) && (
-        <TouchableOpacity
-          style={styles.viewMapButton}
-          onPress={(e) => {
-            e.stopPropagation?.();
-            onViewMap();
-          }}
-        >
-          <Text style={styles.viewMapText}>View on Map</Text>
-        </TouchableOpacity>
-      )}
+      {/* Details */}
+      <View style={styles.cardBody}>
+        <Text style={styles.cardTitle}>{item.eventName || item.name}</Text>
+
+        <View style={styles.cardMetaRow}>
+          <View style={styles.cardMeta}>
+            <Text style={styles.metaIcon}>📅</Text>
+            <Text style={styles.metaText}>
+              {item.time?.split(" at ")[0] || ""}
+            </Text>
+          </View>
+          <View style={styles.cardMeta}>
+            <Text style={styles.metaIcon}>🕐</Text>
+            <Text style={styles.metaText}>
+              {item.time?.split(" at ")[1] || item.time}
+            </Text>
+          </View>
+        </View>
+
+        {item.locationName && (
+          <View style={styles.cardMeta}>
+            <Text style={styles.metaIcon}>📍</Text>
+            <Text style={styles.metaText}>{item.locationName}</Text>
+          </View>
+        )}
+
+        {(item.showOnMap || item.latitude) && (
+          <TouchableOpacity
+            style={styles.viewMapButton}
+            onPress={(e) => {
+              e.stopPropagation?.();
+              onViewMap();
+            }}
+          >
+            <Text style={styles.viewMapText}>View on Map</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   </TouchableOpacity>
 );
@@ -278,23 +288,6 @@ export default function App() {
       setIsReporting(false);
     }
   };
-
-  // ─────────────────────────────────────────
-  // EVENT DETAIL VIEW
-  // ─────────────────────────────────────────
-  if (selectedEvent) {
-    return (
-      <EventDetail
-        item={selectedEvent}
-        onClose={() => setSelectedEvent(null)}
-        onViewMap={() => {
-          setFocusedEvent(selectedEvent);
-          setSelectedEvent(null);
-          setShowMap(true);
-        }}
-      />
-    );
-  }
 
   // ─────────────────────────────────────────
   // MAP VIEW
@@ -417,7 +410,7 @@ export default function App() {
           {isReporting ? (
             <ActivityIndicator color="#FFFFFF" />
           ) : (
-            <Text style={styles.reportButtonText}>⚠️ Mark Hot Spot</Text>
+            <View style={styles.redDot} />
           )}
         </TouchableOpacity>
       </SafeAreaView>
@@ -428,75 +421,83 @@ export default function App() {
   // HOME VIEW
   // ─────────────────────────────────────────
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View>
+    <>
+      <SafeAreaView style={styles.container}>
+        {/* Header */}
+        <View style={styles.header}>
           <Text style={styles.headerTitle}>Rebel Radar</Text>
           <Text style={styles.headerSubtitle}>Discover events near you</Text>
         </View>
-        <TouchableOpacity
-          style={styles.headerIcon}
-          onPress={async () => {
-            if (!locationPermission) {
-              Alert.alert(
-                "Permission Denied",
-                "Enable location to center the map on you.",
-              );
-              return;
-            }
-            const loc = await Location.getCurrentPositionAsync({
-              accuracy: Location.Accuracy.Balanced,
-            });
-            setFocusedEvent({
-              latitude: loc.coords.latitude,
-              longitude: loc.coords.longitude,
-            });
-            setShowMap(true);
-          }}
-        >
-          <Text style={{ fontSize: 22 }}>📍</Text>
-        </TouchableOpacity>
-      </View>
 
-      {/* Events List */}
-      <FlatList
-        data={liveEvents}
-        keyExtractor={(item, index) =>
-          `${item.eventName || item.name}-${index}`
-        }
-        contentContainerStyle={styles.listContainer}
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Upcoming Events</Text>
-            <Text style={styles.sectionSubtitle}>
-              {liveEvents.length} events happening soon
-            </Text>
-          </View>
-        }
-        renderItem={({ item }) => (
-          <EventCard
-            item={item}
-            onPress={() => setSelectedEvent(item)}
+        {/* Events List */}
+        <FlatList
+          data={liveEvents}
+          keyExtractor={(item, index) =>
+            `${item.eventName || item.name}-${index}`
+          }
+          contentContainerStyle={styles.listContainer}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Upcoming Events</Text>
+              <Text style={styles.sectionSubtitle}>
+                {liveEvents.length} events happening soon
+              </Text>
+            </View>
+          }
+          renderItem={({ item }) => (
+            <EventCard
+              item={item}
+              onPress={() => setSelectedEvent(item)}
+              onViewMap={() => {
+                setFocusedEvent(item);
+                setShowMap(true);
+              }}
+            />
+          )}
+        />
+
+        {/* Fixed Bottom Bar */}
+        <View style={styles.bottomBar}>
+          <TouchableOpacity
+            style={styles.viewAllButton}
+            onPress={() => setShowMap(true)}
+          >
+            <Text style={styles.viewAllText}>View All Events on Map</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.hotspotButton}
+            onPress={handleReportSolicitor}
+            disabled={isReporting}
+          >
+            {isReporting ? (
+              <ActivityIndicator color="#FFFFFF" size="small" />
+            ) : (
+              <View style={styles.redDot} />
+            )}
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+
+      <Modal
+        visible={!!selectedEvent}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setSelectedEvent(null)}
+      >
+        {selectedEvent && (
+          <EventDetail
+            item={selectedEvent}
+            onClose={() => setSelectedEvent(null)}
             onViewMap={() => {
-              setFocusedEvent(item);
+              setFocusedEvent(selectedEvent);
+              setSelectedEvent(null);
               setShowMap(true);
             }}
           />
         )}
-      />
-
-      {/* Fixed Bottom Button */}
-      <View style={styles.bottomBar}>
-        <TouchableOpacity
-          style={styles.viewAllButton}
-          onPress={() => setShowMap(true)}
-        >
-          <Text style={styles.viewAllText}>View All Events on Map</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+      </Modal>
+    </>
   );
 }
 
@@ -672,8 +673,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
   },
   header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 16,
@@ -686,6 +685,9 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     color: "#CC0000",
     letterSpacing: -0.5,
+    textShadowColor: "rgba(204, 0, 0, 0.2)",
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
   },
   headerSubtitle: {
     fontSize: 13,
@@ -717,13 +719,16 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
-    overflow: "hidden",
     marginBottom: 16,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    elevation: 8,
+  },
+  cardInner: {
+    borderRadius: 20,
+    overflow: "hidden",
   },
   cardImageContainer: {
     height: 180,
@@ -805,14 +810,32 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingBottom: 30,
     backgroundColor: "transparent",
+    flexDirection: "row",
+    gap: 12,
+    alignItems: "center",
+  },
+  hotspotButton: {
+    backgroundColor: "#CC0000",
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#CC0000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 5,
+    elevation: 8,
+    alignSelf: "stretch",
   },
   viewAllButton: {
+    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 8,
     backgroundColor: "#CC0000",
-    paddingVertical: 16,
+    height: 56,
     borderRadius: 16,
     shadowColor: "#CC0000",
     shadowOffset: { width: 0, height: 4 },
@@ -868,6 +891,17 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontSize: 16,
     letterSpacing: 0.5,
+  },
+  redDot: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: "#CC0000",
+    shadowColor: "#CC0000",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 6,
+    elevation: 4,
   },
   snapMapInnerCircle: {
     width: 16,
