@@ -59,14 +59,19 @@ const EventCard = ({
     <View style={styles.cardBody}>
       <Text style={styles.cardTitle}>{item.eventName || item.name}</Text>
 
-      <View style={styles.cardMeta}>
-        <Text style={styles.metaIcon}>📅</Text>
-        <Text style={styles.metaText}>{item.date}</Text>
-      </View>
-
-      <View style={styles.cardMeta}>
-        <Text style={styles.metaIcon}>🕐</Text>
-        <Text style={styles.metaText}>{item.time}</Text>
+      <View style={styles.cardMetaRow}>
+        <View style={styles.cardMeta}>
+          <Text style={styles.metaIcon}>📅</Text>
+          <Text style={styles.metaText}>
+            {item.time?.split(" at ")[0] || ""}
+          </Text>
+        </View>
+        <View style={styles.cardMeta}>
+          <Text style={styles.metaIcon}>🕐</Text>
+          <Text style={styles.metaText}>
+            {item.time?.split(" at ")[1] || item.time}
+          </Text>
+        </View>
       </View>
 
       {(item.showOnMap || item.latitude) && (
@@ -313,9 +318,28 @@ export default function App() {
           <Text style={styles.headerTitle}>EventFinder</Text>
           <Text style={styles.headerSubtitle}>Discover events near you</Text>
         </View>
-        <View style={styles.headerIcon}>
+        <TouchableOpacity
+          style={styles.headerIcon}
+          onPress={async () => {
+            if (!locationPermission) {
+              Alert.alert(
+                "Permission Denied",
+                "Enable location to center the map on you.",
+              );
+              return;
+            }
+            const loc = await Location.getCurrentPositionAsync({
+              accuracy: Location.Accuracy.Balanced,
+            });
+            setFocusedEvent({
+              latitude: loc.coords.latitude,
+              longitude: loc.coords.longitude,
+            });
+            setShowMap(true);
+          }}
+        >
           <Text style={{ fontSize: 22 }}>📍</Text>
-        </View>
+        </TouchableOpacity>
       </View>
 
       {/* Events List */}
@@ -465,6 +489,10 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#111827",
     marginBottom: 4,
+  },
+  cardMetaRow: {
+    flexDirection: "row",
+    gap: 16,
   },
   cardMeta: {
     flexDirection: "row",
