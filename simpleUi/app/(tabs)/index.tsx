@@ -12,8 +12,11 @@ import {
   Image,
   ScrollView,
   Modal,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, Callout, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
 import { createClient } from "@supabase/supabase-js";
 import Svg, { Circle, Defs, RadialGradient, Stop } from "react-native-svg";
@@ -114,7 +117,6 @@ const EventDetail = ({
           {/* Map button */}
           {(item.showOnMap || item.latitude) && (
             <TouchableOpacity style={detail.mapButton} onPress={onViewMap}>
-              <Text style={detail.mapButtonIcon}>🗺️</Text>
               <Text style={detail.mapButtonText}>View on Map</Text>
             </TouchableOpacity>
           )}
@@ -201,6 +203,77 @@ const EventCard = ({
 );
 
 // ─────────────────────────────────────────
+// HOTSPOT NAME MODAL
+// ─────────────────────────────────────────
+const HotspotModal = ({
+  visible,
+  label,
+  editing,
+  isLoading,
+  onChangeLabel,
+  onSubmit,
+  onCancel,
+}: {
+  visible: boolean;
+  name: string;
+  editing: boolean;
+  isLoading: boolean;
+  onChangeLabel: (text: string) => void;
+  onSubmit: () => void;
+  onCancel: () => void;
+}) => (
+  <Modal
+    visible={visible}
+    transparent
+    animationType="fade"
+    onRequestClose={onCancel}
+  >
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={hotspotModal.overlay}
+    >
+      <View style={hotspotModal.card}>
+        <Text style={hotspotModal.title}>
+          {editing ? "Edit Marker Name" : "Name Your Hotspot"}
+        </Text>
+        <Text style={hotspotModal.subtitle}>
+          {editing
+            ? "Update the name others will see on this marker."
+            : "Give this marker a name so others know what to look out for."}
+        </Text>
+        <TextInput
+          style={hotspotModal.input}
+          placeholder="e.g. Solicitors near SU, Crowd at Rec..."
+          placeholderTextColor="#9CA3AF"
+          value={label}
+          onChangeText={onChangeLabel}
+          maxLength={40}
+          autoFocus
+        />
+        <View style={hotspotModal.btnRow}>
+          <TouchableOpacity style={hotspotModal.cancelBtn} onPress={onCancel}>
+            <Text style={hotspotModal.cancelText}>Cancel</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={hotspotModal.submitBtn}
+            onPress={onSubmit}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color="#fff" />
+            ) : (
+              <Text style={hotspotModal.submitText}>
+                {editing ? "Save" : "Drop Pin"}
+              </Text>
+            )}
+          </TouchableOpacity>
+        </View>
+      </View>
+    </KeyboardAvoidingView>
+  </Modal>
+);
+
+// ─────────────────────────────────────────
 // MAIN APP
 // ─────────────────────────────────────────
 export default function App() {
@@ -210,11 +283,25 @@ export default function App() {
   const [showMap, setShowMap] = useState(false);
   const [focusedEvent, setFocusedEvent] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [myHotspotId, setMyHotspotId] = useState(null);
+  const [showHotspotModal, setShowHotspotModal] = useState(false);
+  const [hotspotLabel, setHotspotLabel] = useState("");
+  const [editingHotspot, setEditingHotspot] = useState(false);
+  const [pendingLocation, setPendingLocation] = useState(null);
 
   const liveEvents = eventData.events || [];
-  const activeMapEvents = liveEvents.filter(
-    (event) => event.showOnMap === true && event.latitude && event.longitude,
-  );
+
+  const todayEvents = liveEvents.filter((event) => {
+    if (!event.latitude || !event.longitude || !event.time) return false;
+    const eventDateStr = event.time.split(" at ")[0]; // e.g. "Feb 21"
+    const eventDate = new Date(`${eventDateStr} ${new Date().getFullYear()}`);
+    const today = new Date();
+    return (
+      eventDate.getFullYear() === today.getFullYear() &&
+      eventDate.getMonth() === today.getMonth() &&
+      eventDate.getDate() === today.getDate()
+    );
+  });
 
   const UNLV_REGION = {
     latitude: 36.1069,
@@ -273,16 +360,64 @@ export default function App() {
       const currentLocation = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Balanced,
       });
+      setPendingLocation(currentLocation.coords);
+      setHotspotLabel("");
+      setEditingHotspot(false);
+      setShowHotspotModal(true);
+    } catch (error) {
+      Alert.alert("Error", "Could not get your location.");
+      console.log(error);
+    } finally {
+      setIsReporting(false);
+    }
+  };
+
+  const handleSubmitHotspot = async () => {
+    if (!pendingLocation) return;
+    setIsReporting(true);
+    try {
       const newWarningPin = {
-        latitude: currentLocation.coords.latitude,
-        longitude: currentLocation.coords.longitude,
+        latitude: pendingLocation.latitude,
+        longitude: pendingLocation.longitude,
         timestamp: new Date().toISOString(),
+        name: hotspotLabel.trim() || "Hot Spot",
       };
-      const { error } = await supabase.from("hotspots").insert([newWarningPin]);
+      const { data, error } = await supabase
+        .from("hotspots")
+        .insert([newWarningPin])
+        .select()
+        .single();
       if (error) throw error;
+      setMyHotspotId(data.id);
+      setShowHotspotModal(false);
       Alert.alert("Radar Updated", "Mark Successful!");
     } catch (error) {
       Alert.alert("Error", "Could not connect to the radar network.");
+      console.log(error);
+    } finally {
+      setIsReporting(false);
+    }
+  };
+
+  const handleEditHotspot = async () => {
+    if (!myHotspotId) return;
+    setIsReporting(true);
+    try {
+      const { error } = await supabase
+        .from("hotspots")
+        .update({ name: hotspotLabel.trim() || "Hot Spot" })
+        .eq("id", myHotspotId);
+      if (error) throw error;
+      setHotSpots((spots) =>
+        spots.map((s) =>
+          s.id === myHotspotId
+            ? { ...s, name: hotspotLabel.trim() || "Hot Spot" }
+            : s,
+        ),
+      );
+      setShowHotspotModal(false);
+    } catch (error) {
+      Alert.alert("Error", "Could not update the marker.");
       console.log(error);
     } finally {
       setIsReporting(false);
@@ -311,18 +446,84 @@ export default function App() {
           showsUserLocation={locationPermission}
           showsMyLocationButton={true}
         >
-          {activeMapEvents.map((event, index) => (
+          {todayEvents.map((event, index) => (
             <Marker
-              key={`event-${index}`}
+              key={`today-${index}`}
               coordinate={{
                 latitude: event.latitude,
                 longitude: event.longitude,
               }}
-              title={event.eventName}
-              description={event.coolFactor}
               pinColor="#CC0000"
-            />
+            >
+              <Callout tooltip>
+                <View style={mapCallout.container}>
+                  {event.imageUrl ? (
+                    <Image
+                      source={{ uri: event.imageUrl }}
+                      style={mapCallout.image}
+                      resizeMode="cover"
+                    />
+                  ) : (
+                    <View style={mapCallout.imagePlaceholder}>
+                      <Text style={{ fontSize: 28 }}>🎉</Text>
+                    </View>
+                  )}
+                  <View style={mapCallout.info}>
+                    <Text style={mapCallout.name} numberOfLines={1}>
+                      {event.eventName || event.name}
+                    </Text>
+                    {event.locationName && (
+                      <View style={mapCallout.locationRow}>
+                        <Text style={mapCallout.locationIcon}>📍</Text>
+                        <Text style={mapCallout.locationText} numberOfLines={1}>
+                          {event.locationName}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                </View>
+              </Callout>
+            </Marker>
           ))}
+
+          {focusedEvent && focusedEvent.latitude && focusedEvent.longitude && (
+            <Marker
+              coordinate={{
+                latitude: focusedEvent.latitude,
+                longitude: focusedEvent.longitude,
+              }}
+              pinColor="#CC0000"
+            >
+              <Callout tooltip>
+                <View style={mapCallout.container}>
+                  {focusedEvent.imageUrl ? (
+                    <Image
+                      source={{ uri: focusedEvent.imageUrl }}
+                      style={mapCallout.image}
+                      resizeMode="cover"
+                    />
+                  ) : (
+                    <View style={mapCallout.imagePlaceholder}>
+                      <Text style={{ fontSize: 28 }}>🎉</Text>
+                    </View>
+                  )}
+                  <View style={mapCallout.info}>
+                    <Text style={mapCallout.name} numberOfLines={1}>
+                      {focusedEvent.eventName || focusedEvent.name}
+                    </Text>
+                    {focusedEvent.locationName && (
+                      <View style={mapCallout.locationRow}>
+                        <Text style={mapCallout.locationIcon}>📍</Text>
+                        <Text style={mapCallout.locationText} numberOfLines={1}>
+                          {focusedEvent.locationName}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                </View>
+              </Callout>
+            </Marker>
+          )}
 
           {hotSpots.map((spot, index) => {
             let displayTime = "Recently";
@@ -332,6 +533,7 @@ export default function App() {
                 minute: "2-digit",
               });
             }
+            const isOwner = spot.id === myHotspotId;
             return (
               <Marker
                 key={`hotspot-${spot.id || index}`}
@@ -339,8 +541,6 @@ export default function App() {
                   latitude: spot.latitude,
                   longitude: spot.longitude,
                 }}
-                title="⚠️ Active Hot Spot"
-                description={`Reported at ${displayTime}`}
               >
                 <View
                   style={{
@@ -387,6 +587,35 @@ export default function App() {
                   </Svg>
                   <View style={styles.snapMapInnerCircle} />
                 </View>
+                <Callout
+                  tooltip
+                  onPress={() => {
+                    if (isOwner) {
+                      setHotspotLabel(spot.name || "Hot Spot");
+                      setEditingHotspot(true);
+                      setShowHotspotModal(true);
+                    }
+                  }}
+                >
+                  <View style={hotspotCallout.container}>
+                    <View style={hotspotCallout.header}>
+                      <Text style={hotspotCallout.emoji}>⚠️</Text>
+                      <Text style={hotspotCallout.name} numberOfLines={1}>
+                        {spot.name || "Hot Spot"}
+                      </Text>
+                    </View>
+                    <Text style={hotspotCallout.time}>
+                      Reported at {displayTime}
+                    </Text>
+                    {isOwner && (
+                      <View style={hotspotCallout.editBtn}>
+                        <Text style={hotspotCallout.editBtnText}>
+                          ✏️ Edit Name
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                </Callout>
               </Marker>
             );
           })}
@@ -410,9 +639,19 @@ export default function App() {
           {isReporting ? (
             <ActivityIndicator color="#FFFFFF" />
           ) : (
-            <View style={styles.redDot} />
+            <Text style={styles.reportButtonText}>Mark Hotspot</Text>
           )}
         </TouchableOpacity>
+
+        <HotspotModal
+          visible={showHotspotModal}
+          label={hotspotLabel}
+          editing={editingHotspot}
+          isLoading={isReporting}
+          onChangeLabel={setHotspotLabel}
+          onSubmit={editingHotspot ? handleEditHotspot : handleSubmitHotspot}
+          onCancel={() => setShowHotspotModal(false)}
+        />
       </SafeAreaView>
     );
   }
@@ -461,9 +700,12 @@ export default function App() {
         <View style={styles.bottomBar}>
           <TouchableOpacity
             style={styles.viewAllButton}
-            onPress={() => setShowMap(true)}
+            onPress={() => {
+              setFocusedEvent(null);
+              setShowMap(true);
+            }}
           >
-            <Text style={styles.viewAllText}>View All Events on Map</Text>
+            <Text style={styles.viewAllText}>View Map</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.hotspotButton}
@@ -473,7 +715,7 @@ export default function App() {
             {isReporting ? (
               <ActivityIndicator color="#FFFFFF" size="small" />
             ) : (
-              <View style={styles.redDot} />
+              <Text style={styles.hotspotIcon}>📡</Text>
             )}
           </TouchableOpacity>
         </View>
@@ -497,6 +739,16 @@ export default function App() {
           />
         )}
       </Modal>
+
+      <HotspotModal
+        visible={showHotspotModal}
+        label={hotspotLabel}
+        editing={editingHotspot}
+        isLoading={isReporting}
+        onChangeLabel={setHotspotLabel}
+        onSubmit={editingHotspot ? handleEditHotspot : handleSubmitHotspot}
+        onCancel={() => setShowHotspotModal(false)}
+      />
     </>
   );
 }
@@ -815,18 +1067,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   hotspotButton: {
-    backgroundColor: "#CC0000",
+    backgroundColor: "#2D2D2D",
     width: 56,
     height: 56,
     borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#CC0000",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 8,
     alignSelf: "stretch",
+    borderWidth: 1,
+    borderColor: "#444444",
+  },
+  hotspotIcon: {
+    fontSize: 22,
   },
   viewAllButton: {
     flex: 1,
@@ -874,20 +1131,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 40,
     alignSelf: "center",
-    backgroundColor: "#1A1A1A",
+    backgroundColor: "#CC0000",
     paddingVertical: 14,
     paddingHorizontal: 24,
     borderRadius: 30,
-    shadowColor: "#000",
+    shadowColor: "#CC0000",
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.4,
     shadowRadius: 5,
     elevation: 8,
-    borderWidth: 1,
-    borderColor: "#333333",
   },
   reportButtonText: {
-    color: "#F97316",
+    color: "#FFFFFF",
     fontWeight: "800",
     fontSize: 16,
     letterSpacing: 0.5,
@@ -915,5 +1170,186 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 4,
     elevation: 5,
+  },
+});
+
+// ─────────────────────────────────────────
+// MAP CALLOUT STYLES
+// ─────────────────────────────────────────
+const mapCallout = StyleSheet.create({
+  container: {
+    width: 220,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  image: {
+    width: "100%",
+    height: 110,
+  },
+  imagePlaceholder: {
+    width: "100%",
+    height: 110,
+    backgroundColor: "#F3F4F6",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  info: {
+    padding: 12,
+    gap: 4,
+  },
+  name: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#111827",
+  },
+  locationRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    marginTop: 2,
+  },
+  locationIcon: {
+    fontSize: 11,
+  },
+  locationText: {
+    fontSize: 12,
+    color: "#6B7280",
+    fontWeight: "500",
+    flex: 1,
+  },
+});
+
+// ─────────────────────────────────────────
+// HOTSPOT CALLOUT STYLES
+// ─────────────────────────────────────────
+const hotspotCallout = StyleSheet.create({
+  container: {
+    width: 190,
+    backgroundColor: "#1A1A1A",
+    borderRadius: 14,
+    padding: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    marginBottom: 4,
+  },
+  emoji: {
+    fontSize: 16,
+  },
+  name: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#FFFFFF",
+    flex: 1,
+  },
+  time: {
+    fontSize: 11,
+    color: "#9CA3AF",
+  },
+  editBtn: {
+    marginTop: 10,
+    backgroundColor: "#CC0000",
+    borderRadius: 8,
+    paddingVertical: 6,
+    alignItems: "center",
+  },
+  editBtnText: {
+    color: "#FFFFFF",
+    fontWeight: "700",
+    fontSize: 12,
+  },
+});
+
+// ─────────────────────────────────────────
+// HOTSPOT MODAL STYLES
+// ─────────────────────────────────────────
+const hotspotModal = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.55)",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 24,
+  },
+  card: {
+    width: "100%",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    padding: 24,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.25,
+    shadowRadius: 16,
+    elevation: 12,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "800",
+    color: "#111827",
+    marginBottom: 6,
+  },
+  subtitle: {
+    fontSize: 13,
+    color: "#6B7280",
+    marginBottom: 20,
+    lineHeight: 18,
+  },
+  input: {
+    backgroundColor: "#F3F4F6",
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    fontSize: 15,
+    color: "#111827",
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: "#E5E7EB",
+  },
+  btnRow: {
+    flexDirection: "row",
+    gap: 12,
+  },
+  cancelBtn: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#E5E7EB",
+    alignItems: "center",
+  },
+  cancelText: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#6B7280",
+  },
+  submitBtn: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    backgroundColor: "#CC0000",
+    alignItems: "center",
+    shadowColor: "#CC0000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 6,
+    elevation: 6,
+  },
+  submitText: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#FFFFFF",
   },
 });
