@@ -4,19 +4,14 @@ import os
 from openai import OpenAI
 from datetime import datetime, timedelta, timezone
 
-
 from dotenv import load_dotenv
 
-
 load_dotenv()
-
 
 GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 FEATHERLESS_API_KEY = os.getenv("FEATHERLESS_API_KEY")
 
-
 OUTPUT_PATH = os.path.join("app", "map_ready_events.json")
-
 
 # Change this if your index.tsx is inside app/(tabs)/ instead
 OUTPUT_PATH = os.path.join("app/(tabs)/", "map_ready_events.json")
@@ -56,7 +51,7 @@ def scrape_and_parse_events():
         "orderByField": "endsOn",
         "orderByDirection": "ascending",
         "status": "Approved",
-        "take": 50,
+        "take": 15,
         "endsAfter": now_utc_iso
     }
 
@@ -79,12 +74,22 @@ def scrape_and_parse_events():
             vegas_start = utc_start - timedelta(hours=8)
             formatted_time = vegas_start.strftime("%b %d at %I:%M %p").replace(" 0", " ")
 
+            # THE IMAGE SCRAPER: Grab the secret imagePath ID
+            img_path = event.get('imagePath')
+
+            # If they uploaded a poster, build the full URL.
+            # If not, use a high-quality UNLV campus stock photo as a beautiful fallback!
+            if img_path:
+               image_url = f"https://se-images.campuslabs.com/clink/images/{img_path}"
+            else:
+                image_url = "https://content.heterodoxacademy.org/uploads/University-of-Nevada-Las-Vegas.jpg"
+
             pre_processed_events.append({
                 "eventName": event.get("name", ""),
                 "description": event.get("description", ""),
                 "locationName": event.get("location", ""),
-                "time": formatted_time
-                # Notice we removed showOnMap from here. The AI isn't allowed to see it anymore.
+                "time": formatted_time,
+                "imageUrl": image_url # <-- Add the image to the package
             })
         except Exception as e:
             continue
@@ -108,6 +113,7 @@ def scrape_and_parse_events():
     3. time: Keep exactly as provided.
     4. description: Clean up the provided description to a clean, 1-to-2 sentence summary. Remove HTML.
     5. coolFactor: Write a short, punchy 3-to-5 word hook based on the description.
+    6. imageUrl: Keep exactly as provided. DO NOT modify this URL.
 
     Output a JSON object containing a single array called "events".
     """
@@ -119,7 +125,8 @@ def scrape_and_parse_events():
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt_data}
         ],
-        response_format={"type": "json_object"}
+        response_format={"type": "json_object"},
+        max_tokens=8000
     )
 
     clean_data = llm_response.choices[0].message.content
