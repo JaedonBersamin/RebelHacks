@@ -1,0 +1,710 @@
+[
+    {
+        "id": "11227702",
+        "institutionId": 138,
+        "organizationId": 188886,
+        "organizationIds": [
+            "68221",
+            "188886",
+            "207605",
+            "211870"
+        ],
+        "branchId": 66102,
+        "branchIds": [
+            "66102"
+        ],
+        "organizationName": "Leadership Engagement and Development Team",
+        "organizationProfilePicture": "e9428c25-f1aa-4f60-86a9-8ee856a6a0b004b4d056-3529-487b-b7b4-71743dfd4f1f.png",
+        "organizationNames": [
+            "Lee Business School Ambassadors",
+            "Leadership Engagement and Development Team",
+            "Student Connection & Engagement",
+            "Service Learning & Leadership"
+        ],
+        "name": "LeaderShape: Resilience Workshop ",
+        "description": "<p class=\"p1\">Just like Alex, Marty, Gloria, and Melman had to adapt when they found themselves far from the comforts of the Central Park Zoo, <strong data-start=\"257\" data-end=\"271\">Resilience</strong> is all about learning how to navigate the wild twists and turns of life. In this program, participants will explore the LeaderShape Model of Resilience to discover their core values&mdash;the anchors that keep us steady when things feel unpredictable. Together, we&rsquo;ll identify the challenges that call for resilience, learn how to rewrite our own stories with confidence (kind of like Julien declaring himself king of the lemurs), and reflect on the ways we can build strength both within ourselves and alongside our communities. By the end, you&rsquo;ll not only recognize your own resilience but also leave ready to co-create it with your team&mdash;because in the jungle of change, we&rsquo;re better when we move it, move it together.</p>",
+        "location": "SU Room 208",
+        "startsOn": "2026-02-20T17:30:00+00:00",
+        "endsOn": "2026-02-20T19:30:00+00:00",
+        "imagePath": "a90c3d08-3400-48b1-a56f-1a6ee84200ff4de7c09f-70c5-46d4-b333-00d58d7823de.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference"
+        ],
+        "benefitNames": [
+            "Free Food",
+            "Free Stuff"
+        ],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 27,
+        "@search.score": 1.0
+    },
+    {
+        "id": "12256945",
+        "institutionId": 138,
+        "organizationId": 423784,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "K-pop Club",
+        "organizationProfilePicture": "b572d441-384d-4cb0-83c3-56a258ee42ce6a24684a-cac9-4729-af25-21deda14c89a.png",
+        "organizationNames": [],
+        "name": "K-pop Club Dance Team Audition",
+        "description": "<div>K-pop Club is holding auditions this Friday to create a dance team! You will present 30-60 seconds of any K-pop choreography and have a brief interview with the judges so we can get to know you.</div>\r\n<div>The K-pop Club dance team will have opportunities to perform and film dance covers \u2606</div>\r\n<div>If you have any questions, you can either email montav3@unlv.nevada.edu or message us on Instagram @unlvkpop_official ! :D</div>",
+        "location": "SRWC rm 2025",
+        "startsOn": "2026-02-20T18:00:00+00:00",
+        "endsOn": "2026-02-20T20:00:00+00:00",
+        "imagePath": "eab8e98a-f3c1-4ca9-a60d-7f417e9fb72ec91f1868-6348-4422-ab3d-41313d29b608.png",
+        "theme": "Arts",
+        "categoryIds": [],
+        "categoryNames": [],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.106040",
+        "longitude": "-115.138930",
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 1.0
+    },
+    {
+        "id": "12135884",
+        "institutionId": 138,
+        "organizationId": 227550,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "UNLV Wellness Zone and Counseling and Psychological Services (CAPS)",
+        "organizationProfilePicture": null,
+        "organizationNames": [],
+        "name": "Relaxing Your Mind: Coping With Anxiety",
+        "description": "<p><span data-sheets-root=\"1\">This two-part workshop is intended to provide information about anxiety and a variety of practical coping skills for anxiety and stress.</span></p>",
+        "location": "Online",
+        "startsOn": "2026-02-20T19:00:00+00:00",
+        "endsOn": "2026-02-20T20:00:00+00:00",
+        "imagePath": "909480eb-17a5-40c0-80d3-adf67e6f4409ac573d88-825b-4d60-bb2d-de5cafb24cff.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 1.0
+    },
+    {
+        "id": "12265214",
+        "institutionId": 138,
+        "organizationId": 327573,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Institute of Transportation Engineers",
+        "organizationProfilePicture": "bff4e8b4-2ce8-4a74-a889-683050f1f07c1a48b761-9ec7-490c-881e-bd86ca93d6df.jpg",
+        "organizationNames": [],
+        "name": "Resume Review Workshop",
+        "description": "<p data-start=\"195\" data-end=\"248\">Resume Review Workshop &ndash; ITE UNLV Student Chapter</p>\r\n<p data-start=\"250\" data-end=\"518\">The ITE UNLV Student Chapter, in collaboration with the CEEC Department, TRC, and University Transportation Centers at UNLV, is hosting a Resume Review Workshop designed to help students strengthen their resumes and prepare for internships and full-time opportunities.</p>\r\n<p data-start=\"520\" data-end=\"602\">Event Details:<br data-start=\"538\" data-end=\"541\" />Friday, February 20, 2026<br data-start=\"566\" data-end=\"569\" />11:30 AM &ndash; 1:00 PM PST<br data-start=\"591\" data-end=\"594\" />SEB 1243</p>\r\n<p data-start=\"604\" data-end=\"836\">Students will have the opportunity to receive direct feedback from hiring managers and industry professionals, improve resume structure and content, and gain practical insights into what employers look for in competitive candidates.</p>\r\n<p data-start=\"838\" data-end=\"920\">Representatives from leading organizations are expected to participate, including:</p>\r\n<ul data-start=\"921\" data-end=\"1083\">\r\n<li data-start=\"921\" data-end=\"936\">\r\n<p data-start=\"923\" data-end=\"936\">Kimley-Horn</p>\r\n</li>\r\n<li data-start=\"937\" data-end=\"994\">\r\n<p data-start=\"939\" data-end=\"994\">Regional Transportation Commission of Southern Nevada</p>\r\n</li>\r\n<li data-start=\"995\" data-end=\"1016\">\r\n<p data-start=\"997\" data-end=\"1016\">City of Henderson</p>\r\n</li>\r\n<li data-start=\"1017\" data-end=\"1027\">\r\n<p data-start=\"1019\" data-end=\"1027\">Jacobs</p>\r\n</li>\r\n<li data-start=\"1028\" data-end=\"1035\">\r\n<p data-start=\"1030\" data-end=\"1035\">GCW</p>\r\n</li>\r\n<li data-start=\"1036\" data-end=\"1048\">\r\n<p data-start=\"1038\" data-end=\"1048\">Westwood</p>\r\n</li>\r\n<li data-start=\"1049\" data-end=\"1083\">\r\n<p data-start=\"1051\" data-end=\"1083\">And additional industry partners</p>\r\n</li>\r\n</ul>\r\n<p data-start=\"1085\" data-end=\"1217\">This workshop is an excellent opportunity to refine your resume, expand your professional network, and gain career-focused guidance.</p>",
+        "location": "Science and Engineering Building, Room No: 1243",
+        "startsOn": "2026-02-20T19:30:00+00:00",
+        "endsOn": "2026-02-20T21:00:00+00:00",
+        "imagePath": "a7b3f89d-a56d-4e72-9288-cf5f5afd61f97ce8b1be-0a77-4c78-84d6-a632575f5c33.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160",
+            "2163"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference",
+            "Academic / Lecture"
+        ],
+        "benefitNames": [
+            "Free Food"
+        ],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.110860",
+        "longitude": "-115.141520",
+        "recScore": null,
+        "rsvpTotal": 1,
+        "@search.score": 1.0
+    },
+    {
+        "id": "12252786",
+        "institutionId": 138,
+        "organizationId": 105292,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Society of Physics Students",
+        "organizationProfilePicture": "5c82fa5a-9690-4092-8c07-536bcec7c4387611c811-e080-483b-9fd8-e3ac6b96f7ed.png",
+        "organizationNames": [],
+        "name": "SPS Guest Lecture",
+        "description": "<p>Have you ever wondered how the Universe came to be? People have been asking the same question since the very beginnings of civilization! Join us in BPB 248 as Dr. David Jeffrey explores the fascinating history of Cosmology. Dr. Jeffrey's primary research interests are supernovae and radiative transfer. By studying these processes, physicists like Dr. Jeffrey seek to find answers to how the Universe became the way it is today!</p>",
+        "location": "BPB 248 (Bigelow Physics Building)",
+        "startsOn": "2026-02-20T20:00:00+00:00",
+        "endsOn": "2026-02-20T21:00:00+00:00",
+        "imagePath": "a8338bf7-a051-4a58-9825-cbd175ccf2f50aa1820c-5fb5-4b30-bff6-1bfc34d81134.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2163"
+        ],
+        "categoryNames": [
+            "Academic / Lecture"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 2,
+        "@search.score": 1.0
+    },
+    {
+        "id": "12222984",
+        "institutionId": 138,
+        "organizationId": 416325,
+        "organizationIds": [
+            "354342",
+            "416325"
+        ],
+        "branchId": 66102,
+        "branchIds": [
+            "66102"
+        ],
+        "organizationName": "The Coaching Spot",
+        "organizationProfilePicture": "2d177c40-1c97-484c-90af-c9d24611cf5c1c73c94a-1b8d-4859-9a73-00a79dd30b8d.jpg",
+        "organizationNames": [
+            "Rebels R.I.S.E.",
+            "The Coaching Spot"
+        ],
+        "name": "Advising #1- Spring 26 Success Series ",
+        "description": "<p>Learn why it&rsquo;s important to schedule advising appointments early and how to make the most of these sessions. We&rsquo;ll discuss strategies for selecting courses that align with your goals and share tips for effectively utilizing advising resources.</p>",
+        "location": "Online",
+        "startsOn": "2026-02-20T21:00:00+00:00",
+        "endsOn": "2026-02-20T22:00:00+00:00",
+        "imagePath": "68ca6512-7c18-4bf5-a415-19c70384ece0b6b4f2cd-2a7b-475e-be1f-e866fbb88da9.pdf",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160",
+            "2163",
+            "2167"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference",
+            "Academic / Lecture",
+            "Social"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 1,
+        "@search.score": 1.0
+    },
+    {
+        "id": "12063321",
+        "institutionId": 138,
+        "organizationId": 415183,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Rebel Freestyle",
+        "organizationProfilePicture": "bb2485b8-b2ab-4f34-8f2d-ff842a3d5997b7f6ba2f-0cb3-4333-9cb1-ab95723a7821.png",
+        "organizationNames": [],
+        "name": "Friday kick!",
+        "description": "<p class=\"p1\">Join us in honing our balance, coordination, dexterity, power, and friendships! We'll meet in the lobby of the Rec. See the latest exact plans on our WhatsApp. Come play with us!</p>",
+        "location": "Student Recreation and Wellness Center",
+        "startsOn": "2026-02-21T02:30:00+00:00",
+        "endsOn": "2026-02-21T04:30:00+00:00",
+        "imagePath": "048ac95f-e5ce-4cf5-a1ec-47e6503da0723991180e-afb3-4ece-a00f-600320d5560a.png",
+        "theme": "Athletics",
+        "categoryIds": [
+            "2165",
+            "2166",
+            "2167"
+        ],
+        "categoryNames": [
+            "General Meeting",
+            "Entertainment",
+            "Social"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.106040",
+        "longitude": "-115.138930",
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 99.98893
+    },
+    {
+        "id": "12256942",
+        "institutionId": 138,
+        "organizationId": 68311,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Engineers Without Borders",
+        "organizationProfilePicture": "05e98ec0-60da-4eeb-9321-77cf01583525e77e9d52-3e41-4bfb-b88a-37f11f6cb030.png",
+        "organizationNames": [],
+        "name": "Discord Project Update Meeting",
+        "description": "<p>Our February project update meeting via Discord. We'll go over major updates on the current state of the club and what we're working on. Anyone and everyone is encouraged to join us as we discuss our progress and what's next!&nbsp;We will have professionals in attendance as well, so it's a great way to get your foot in the door if you're looking to get more involved! If you have any questions, please message any of the members.</p>\r\n<p><a href=\"https://discord.gg/9tRV7KYU?event=1472806944161923331\">Discord Project Update Meeting Link</a></p>",
+        "location": "Online",
+        "startsOn": "2026-02-22T00:00:00+00:00",
+        "endsOn": "2026-02-22T01:00:00+00:00",
+        "imagePath": null,
+        "theme": "CommunityService",
+        "categoryIds": [],
+        "categoryNames": [],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 99.89383
+    },
+    {
+        "id": "12213150",
+        "institutionId": 138,
+        "organizationId": 363368,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "The Wildlife Society ",
+        "organizationProfilePicture": "ede1fe6b-1ae8-443f-b0d4-97501169580bec3052d4-a1ee-4fac-b11f-75514acdb7a2.png",
+        "organizationNames": [],
+        "name": "Guided Hike with a Bureau of Land Management Ranger at Sloan Canyon Petroglyph Site",
+        "description": "<p data-start=\"261\" data-end=\"409\"><strong data-start=\"261\" data-end=\"409\">Join us for our first field trip of the Spring 2026 semester &mdash; a guided hike on the Petroglyph Trail in Sloan Canyon National Conservation Area!</strong></p>\r\n<p data-start=\"261\" data-end=\"409\"><strong data-start=\"261\" data-end=\"409\">Send an email to villan18@unlv.nevada.edu to RSVP if you're not a member of The Wildlife Society</strong></p>\r\n<p data-start=\"411\" data-end=\"541\"><strong>&nbsp;Date: Sunday, February 22</strong><br data-start=\"443\" data-end=\"446\" /><strong>&nbsp;Meeting Time: 9:00 AM</strong><br data-start=\"473\" data-end=\"476\" /><strong>&nbsp;Meeting Location: 3495 Via Altamira, Henderson, NV 89044</strong></p>\r\n<p data-start=\"411\" data-end=\"541\"><strong>We will meet at a nearby park. Please arrive on time&nbsp;so we can organize carpools and depart together.</strong></p>\r\n<p data-start=\"411\" data-end=\"541\">What to expect:</p>\r\n<ul data-start=\"559\" data-end=\"787\">\r\n<li data-start=\"559\" data-end=\"591\">\r\n<p data-start=\"561\" data-end=\"591\">A moderate 5.5-mile hike</p>\r\n</li>\r\n<li data-start=\"592\" data-end=\"657\">\r\n<p data-start=\"594\" data-end=\"657\">Learn about Mojave Desert plants, wildlife, and local history</p>\r\n</li>\r\n<li data-start=\"658\" data-end=\"719\">\r\n<p data-start=\"660\" data-end=\"719\">Guided by a Park Ranger with expert knowledge of the area</p>\r\n</li>\r\n<li data-start=\"720\" data-end=\"787\">\r\n<p data-start=\"722\" data-end=\"787\">Plenty of opportunities to ask questions and learn in the field</p>\r\n</li>\r\n</ul>\r\n<p data-start=\"789\" data-end=\"806\">Please bring:</p>\r\n<ul data-start=\"807\" data-end=\"874\">\r\n<li data-start=\"807\" data-end=\"840\">\r\n<p data-start=\"809\" data-end=\"840\">At least 1 liter of water</p>\r\n</li>\r\n<li data-start=\"841\" data-end=\"862\">\r\n<p data-start=\"843\" data-end=\"862\">Closed-toed shoes</p>\r\n</li>\r\n<li data-start=\"863\" data-end=\"874\">\r\n<p data-start=\"865\" data-end=\"874\">A snack</p>\r\n</li>\r\n</ul>\r\n<p data-start=\"876\" data-end=\"933\"><strong data-start=\"879\" data-end=\"933\">Spots are limited to the first 15 people who RSVP!</strong></p>\r\n<p data-start=\"935\" data-end=\"960\">We hope to see you there!</p>",
+        "location": "3495 Via Altamira, Henderson, NV 89044",
+        "startsOn": "2026-02-22T17:00:00+00:00",
+        "endsOn": "2026-02-22T21:00:00+00:00",
+        "imagePath": "cf955584-dca4-4731-9c48-757ec18cd97c3779dfca-db5d-4d4e-bb8e-5e13d5cede5e.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2167"
+        ],
+        "categoryNames": [
+            "Social"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 6,
+        "@search.score": 99.81848
+    },
+    {
+        "id": "12201520",
+        "institutionId": 138,
+        "organizationId": 164832,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "The Scientista Foundation Chapter at UNLV",
+        "organizationProfilePicture": "a7e6bf55-6619-4ef2-95b0-9554cea62c2083cb3d9e-490b-41d5-9a9d-120ca1181af4.jpg",
+        "organizationNames": [],
+        "name": "Scientista Sunday",
+        "description": "<p>Unwind with Scientista over a latte and some treats at Tous Les Jours!</p>",
+        "location": "Tous Les Jours Cafe",
+        "startsOn": "2026-02-22T19:00:00+00:00",
+        "endsOn": "2026-02-22T20:30:00+00:00",
+        "imagePath": "4af92a46-d7fa-4c10-b1bc-0f47662f3167a0b247d2-328f-41ca-b772-034a0a5d35ce.png",
+        "theme": "Social",
+        "categoryIds": [
+            "2167"
+        ],
+        "categoryNames": [
+            "Social"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.125060",
+        "longitude": "-115.205590",
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 99.80961
+    },
+    {
+        "id": "12063303",
+        "institutionId": 138,
+        "organizationId": 321248,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "UNLV Birding and Conservation Club",
+        "organizationProfilePicture": "7e5df9f8-722e-4541-a34f-5c6c8d6f17bd1be2e7fe-9127-4f7b-ae24-e8daddb19e24.png",
+        "organizationNames": [],
+        "name": "February Bird Walk!",
+        "description": "<p>Join UNLV BCC on our monthly on-campus bird walks! We will learn about the birds and diversity right here on UNLV's main campus. This event is great for beginners and experienced birders and will be a great introduction to identifying species. The walks start at 8 am and we will meet at the <a href=\"https://share.google/CuBZY79CrDmFS6ee6\" target=\"_blank\" rel=\"noopener\">Lee Pascal Memorial Rose Garden</a>. Binoculars provided!</p>\r\n<div class=\"notranslate\" style=\"all: initial;\">&nbsp;</div>",
+        "location": "Lee Pascal Memorial Rose Garden",
+        "startsOn": "2026-02-23T16:00:00+00:00",
+        "endsOn": "2026-02-23T18:00:00+00:00",
+        "imagePath": "559f0fc3-25d5-4425-9bb4-48f48ff6e801cb0a0b98-27e7-4885-ae6b-c9fb86e8d3fa.png",
+        "theme": "Social",
+        "categoryIds": [
+            "2163",
+            "2166",
+            "2167"
+        ],
+        "categoryNames": [
+            "Academic / Lecture",
+            "Entertainment",
+            "Social"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.109440",
+        "longitude": "-115.139200",
+        "recScore": null,
+        "rsvpTotal": 9,
+        "@search.score": 99.71633
+    },
+    {
+        "id": "11956265",
+        "institutionId": 138,
+        "organizationId": 191809,
+        "organizationIds": [
+            "191809",
+            "211870"
+        ],
+        "branchId": 66102,
+        "branchIds": [
+            "66102"
+        ],
+        "organizationName": "UNLV Alternative Breaks",
+        "organizationProfilePicture": "fd10d29d-a1b6-4497-8df1-4ceccc8c88b1772b4b96-7d65-4e6d-bedf-944e7c9c8140.png",
+        "organizationNames": [
+            "UNLV Alternative Breaks",
+            "Service Learning & Leadership"
+        ],
+        "name": "It's Just Coffee: Mental Health in America",
+        "description": "<p>It's Just Coffee is a series of meet-ups - approximately once a month - for students to practice their dialogue skills in a low-stakes environment.</p>\r\n<p>This event brings together diverse perspectives to dialogue about a complex topic through sharing of viewpoints, listening openly, and working to understand each other. The goal is&nbsp;<em>not</em>&nbsp;consensus, it is&nbsp;<strong>shared learning.</strong></p>\r\n<p>No topic expertise is required to participate, and there will be a dialogue facilitator and topic guide to assist all participants. And of course, there will be coffee (and tea and snacks)!</p>\r\n<p>Participants in this session may engage questions such as,<strong>&nbsp;\"What is the best way to address mental health in the United States?\"</strong></p>",
+        "location": "Student Union Room 316",
+        "startsOn": "2026-02-23T18:30:00+00:00",
+        "endsOn": "2026-02-23T19:30:00+00:00",
+        "imagePath": "d5040f6d-61d4-4363-9c27-25ee4f57448dbfd1a82f-cb85-4918-9d5f-d73b2911feaa.png",
+        "theme": "Social",
+        "categoryIds": [
+            "2159",
+            "2160",
+            "2167"
+        ],
+        "categoryNames": [
+            "Social Justice",
+            "Workshop / Training / Conference",
+            "Social"
+        ],
+        "benefitNames": [
+            "Free Food"
+        ],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 4,
+        "@search.score": 99.705215
+    },
+    {
+        "id": "12184288",
+        "institutionId": 138,
+        "organizationId": 377326,
+        "organizationIds": [],
+        "branchId": 372861,
+        "branchIds": [],
+        "organizationName": "CAEO College Programs",
+        "organizationProfilePicture": "8b8900cc-c6bc-4f9d-b041-9f2b9703c1360cc5d265-c1ed-4ad6-ac85-c10b0bda1dcc.jpg",
+        "organizationNames": [],
+        "name": "CAEO + Writing Center Scholarship Workshop",
+        "description": "<p>Join the Writing Center in collaboration with the Center for Academic Enrichment and Outreach to prepare for writing scholarship application essays!</p>",
+        "location": "Online",
+        "startsOn": "2026-02-23T22:00:00+00:00",
+        "endsOn": "2026-02-23T23:00:00+00:00",
+        "imagePath": "91c0d4ea-d3ff-41c8-bf02-38f7b72e8767ca312c06-aed9-48a9-a6de-d385c4383d64.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 12,
+        "@search.score": 99.689644
+    },
+    {
+        "id": "12252464",
+        "institutionId": 138,
+        "organizationId": 68426,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Phi Alpha Delta Pre-Law",
+        "organizationProfilePicture": "d40e008e-befb-4954-a605-ff39a71377257d1ef44e-3efc-48f4-9c82-9641249bd15e.png",
+        "organizationNames": [],
+        "name": "UNLV PAD x Princeton Review: LSAT Reading Comprehension Workshop",
+        "description": "<p>All aspiring lawyers love to read. So here&rsquo;s no way any pre-law student can object to the dense, complex passages in the LSAT&reg; Reading Comprehension section. Join an expert instructor to work through sample questions that will help prepare you for one of the two main LSAT&reg; sections&mdash;even if you secretly harbor some contempt</p>",
+        "location": "Online",
+        "startsOn": "2026-02-24T01:30:00+00:00",
+        "endsOn": "2026-02-24T02:30:00+00:00",
+        "imagePath": "780ab522-5d0c-4129-8597-adb48f0353a6fba85801-30de-46a6-9959-18cdf9199762.pdf",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 99.67407
+    },
+    {
+        "id": "12129620",
+        "institutionId": 138,
+        "organizationId": 207605,
+        "organizationIds": [
+            "68156",
+            "68423",
+            "207605"
+        ],
+        "branchId": 66102,
+        "branchIds": [
+            "66102"
+        ],
+        "organizationName": "Student Connection & Engagement",
+        "organizationProfilePicture": "3360f12c-b488-4162-8c43-d954f4616f5e2f7755ab-f798-44e3-8163-3728fdf0c699.jpg",
+        "organizationNames": [
+            "Black Graduate Student Association",
+            "Black Student Organization",
+            "Student Connection & Engagement"
+        ],
+        "name": "Black Mini Con \ud83c\udf08\ud83d\udda4\u2728",
+        "description": "<p data-start=\"2854\" data-end=\"3096\"><em data-start=\"2854\" data-end=\"2870\">Black Mini Con</em> is a mini conference featuring interactive sessions centering Black LGBTQIA+ identity, Black mental health, resilience, and belonging. This event creates space for learning, healing, and affirmation through shared experience.</p>\r\n<p data-start=\"2854\" data-end=\"3096\">&nbsp;</p>\r\n<div><strong>Session 1 (11 AM-12:15 PM)</strong></div>\r\n<div><strong><span style=\"color: #000000;\">Title:</span>&nbsp;</strong><span style=\"color: #434343;\">Queer As Black &ndash; Black As Queer</span></div>\r\n<div><strong><span style=\"color: #000000;\">Facilitated&nbsp;by:</span>&nbsp;</strong><span style=\"color: #434343;\">Christopher J Edwards&nbsp;</span></div>\r\n<div><strong><span style=\"color: #000000;\">Description:</span></strong><span style=\"color: #434343;\">&nbsp;Queer As Black. Black As Queer is a facilitated conversation centering the lived experiences of Black LGBTQIA+ people and affirming that Blackness is not a monolith. This session explores how Black queer identities have been historically erased and misunderstood, even within Black spaces, while also honoring the resilience, joy, and complexity of the community. Through guided dialogue and reflection, participants are invited into honest conversation about belonging, accountability, and liberation. This space is rooted in collective understanding, healing, and connection.</span></div>\r\n<div><strong>&nbsp;</strong></div>\r\n<div><strong><span style=\"color: #000000;\">Lunch 12:15-12:45PM&nbsp;</span></strong></div>\r\n<div>&nbsp;</div>\r\n<div><strong><span style=\"color: #000000;\">Session 2 (12:45 PM-2 PM)&nbsp;</span></strong></div>\r\n<div><strong><span style=\"color: #000000;\">Title</span><span style=\"color: #434343;\">:&nbsp;</span></strong>Thriving while Black: Mental Health, Identity, and Resilience</div>\r\n<div><span style=\"color: #000000;\"><strong>Facilitated&nbsp;by:</strong>&nbsp;Bianca Broomfield and Dr. Shawn Mines</span></div>\r\n<div><strong><span style=\"color: #000000;\">Description</span><span style=\"color: #434343;\">:</span></strong><span style=\"color: #434343;\">&nbsp;This interactive presentation centers Black mental health within the context of campus life, with a focus on navigating predominantly white spaces, colorism, and ethnic identity development. Through guided reflection, discussion, and shared dialogue, participants will explore how these experiences shape well-being, belonging, and self-concept for Black students. Attendees will leave with practical tools, affirming language, and community-informed strategies to protect their mental health and build resilience. The session creates space for connection, validation, and collective learning.</span></div>\r\n<div>&nbsp;</div>\r\n<p data-start=\"3098\" data-end=\"3148\">\ud83c\udf7d\ufe0f Lunch provided by <strong data-start=\"3120\" data-end=\"3148\">Calabash African Kitchen</strong></p>\r\n<p data-start=\"3150\" data-end=\"3228\">\ud83d\udcc5 <strong data-start=\"3153\" data-end=\"3168\">February 24</strong><br data-start=\"3168\" data-end=\"3171\" />\u23f0 <strong data-start=\"3173\" data-end=\"3193\">11:00 AM&ndash;2:00 PM</strong><br data-start=\"3193\" data-end=\"3196\" />\ud83d\udccd <strong data-start=\"3199\" data-end=\"3228\">Barrick Museum Auditorium</strong></p>\r\n<p data-start=\"3230\" data-end=\"3250\">\u270a\ud83c\udffe <strong data-start=\"3236\" data-end=\"3250\">RSVP Today</strong></p>",
+        "location": "Marjorie Barrick Museum of Art",
+        "startsOn": "2026-02-24T19:00:00+00:00",
+        "endsOn": "2026-02-24T22:00:00+00:00",
+        "imagePath": "da2b3f19-a2b9-46c0-8576-17f496e2ca360d2ada01-2c99-442f-bed1-1af16bd57c4e.png",
+        "theme": "Cultural",
+        "categoryIds": [
+            "2158"
+        ],
+        "categoryNames": [
+            "Multicultural / Heritage"
+        ],
+        "benefitNames": [
+            "Free Food",
+            "Free Stuff"
+        ],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.106040",
+        "longitude": "-115.138930",
+        "recScore": null,
+        "rsvpTotal": 17,
+        "@search.score": 99.59611
+    },
+    {
+        "id": "12089645",
+        "institutionId": 138,
+        "organizationId": 377326,
+        "organizationIds": [],
+        "branchId": 372861,
+        "branchIds": [],
+        "organizationName": "CAEO College Programs",
+        "organizationProfilePicture": "8b8900cc-c6bc-4f9d-b041-9f2b9703c1360cc5d265-c1ed-4ad6-ac85-c10b0bda1dcc.jpg",
+        "organizationNames": [],
+        "name": "\"Resolving One-on-One Conflicts (Workplace)\"'",
+        "description": "<p><span style=\"font-weight: 400;\">Are you having a conflict with a peer, supervisor, or subordinate? This interactive session walks you through a few common threads in each type of conflict, explains a few techniques to use to resolve these kinds of conflicts productively, and provides resources for those who find themselves in conflict.</span></p>",
+        "location": "BEH 240",
+        "startsOn": "2026-02-24T22:00:00+00:00",
+        "endsOn": "2026-02-24T23:00:00+00:00",
+        "imagePath": null,
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [],
+        "categoryNames": [],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "36.107920",
+        "longitude": "-115.142760",
+        "recScore": null,
+        "rsvpTotal": 1,
+        "@search.score": 99.58273
+    },
+    {
+        "id": "12131496",
+        "institutionId": 138,
+        "organizationId": 227550,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "UNLV Wellness Zone and Counseling and Psychological Services (CAPS)",
+        "organizationProfilePicture": null,
+        "organizationNames": [],
+        "name": "Mindfulness Arts and Crafts Corner",
+        "description": "<p><span data-sheets-root=\"1\">A CALMING SPACE TO SLOW DOWN, BREATHE, AND EXPRESS YOURSELF THROUGH SOOTHING ARTS &amp; CRAFTS.</span></p>",
+        "location": "Health Education Room, SRWC, Room 1502",
+        "startsOn": "2026-02-24T22:00:00+00:00",
+        "endsOn": "2026-02-24T23:00:00+00:00",
+        "imagePath": "63a344ea-0c98-45e8-9190-571ad355bce73a1b1bff-30d3-4f38-965c-7216c87b9f7a.png",
+        "theme": "Arts",
+        "categoryIds": [
+            "2160",
+            "2166",
+            "2167"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference",
+            "Entertainment",
+            "Social"
+        ],
+        "benefitNames": [
+            "Free Stuff"
+        ],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 99.58273
+    },
+    {
+        "id": "12131460",
+        "institutionId": 138,
+        "organizationId": 227550,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "UNLV Wellness Zone and Counseling and Psychological Services (CAPS)",
+        "organizationProfilePicture": null,
+        "organizationNames": [],
+        "name": "Mindful Moments: Weekly Guided Meditation",
+        "description": "<p><span data-sheets-root=\"1\">Join us for guided meditation. No registration needed. </span></p>",
+        "location": "Health Education Room, SRWC, Room 1502",
+        "startsOn": "2026-02-25T00:30:00+00:00",
+        "endsOn": "2026-02-25T01:30:00+00:00",
+        "imagePath": "f5fd7d94-e0bf-4082-84ba-bc0ed7c272f6d026bdb7-31d0-4219-bcb0-b8cedf2a2de9.png",
+        "theme": "ThoughtfulLearning",
+        "categoryIds": [
+            "2160",
+            "2167"
+        ],
+        "categoryNames": [
+            "Workshop / Training / Conference",
+            "Social"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 0,
+        "@search.score": 99.57158
+    },
+    {
+        "id": "12252826",
+        "institutionId": 138,
+        "organizationId": 360969,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Japanese Students Alliance",
+        "organizationProfilePicture": "c4f4fd90-bb79-4f6b-9e63-5a5aaf3cc02762631188-b766-420e-b418-be8f945f0fa9.png",
+        "organizationNames": [],
+        "name": "Word Games Japanese Student Alliance General Meeting",
+        "description": "<p>Talk your way out of trouble (or into it)...</p>\r\n<p>Join us this week for Word Wolf and E-Shiritori (\u30ef\u30fc\u30c9\u30a6\u30eb\u30d5\u30fb\u7d75\u3057\u308a\u3068\u308a)</p>\r\n<p>Knowledge of Japanese is not required, all games are available in English or Japanese!&nbsp;</p>",
+        "location": "Student Union",
+        "startsOn": "2026-02-25T01:00:00+00:00",
+        "endsOn": "2026-02-25T03:00:00+00:00",
+        "imagePath": "949ca23e-2123-41d9-978b-89dfa7055a958f0e9f24-87d8-4fb3-a73d-2a4202021c4d.png",
+        "theme": "Cultural",
+        "categoryIds": [
+            "2158",
+            "2165"
+        ],
+        "categoryNames": [
+            "Multicultural / Heritage",
+            "General Meeting"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": "29.188240",
+        "longitude": "-81.049290",
+        "recScore": null,
+        "rsvpTotal": 1,
+        "@search.score": 99.56934
+    },
+    {
+        "id": "12263153",
+        "institutionId": 138,
+        "organizationId": 290826,
+        "organizationIds": [],
+        "branchId": 66102,
+        "branchIds": [],
+        "organizationName": "Association of Latino Professionals For America",
+        "organizationProfilePicture": "dc3afb1b-cd89-44ce-8845-384378fdbdbf3de7283a-6a1a-424c-8fb7-7f3b37afdd4e.jpg",
+        "organizationNames": [],
+        "name": "ALPFA x Eide Bailly Early Career Panel",
+        "description": "<p data-start=\"106\" data-end=\"353\">ALPFA is excited to invite you to our <strong>Early Career Panel with Eide Bailly!</strong> Join us for an inspiring evening where you&rsquo;ll hear directly from professionals who have successfully navigated the early stages of their careers in accounting and business.</p>\r\n<p data-start=\"355\" data-end=\"581\">This panel is designed to help you elevate your path and embrace your roots while gaining real insight into internships, full-time roles, career growth, and what it truly looks like to build a long-term career in the industry.</p>\r\n<p data-start=\"583\" data-end=\"600\">You&rsquo;ll hear from:</p>\r\n<p data-start=\"602\" data-end=\"715\">Felitsa Luu &ndash; Tax Manager<br data-start=\"627\" data-end=\"630\" />Crystal Pe&ntilde;a &ndash; Audit Senior<br data-start=\"657\" data-end=\"660\" />Lori Love &ndash; Client Accounting Services Senior Manager</p>\r\n<p data-start=\"717\" data-end=\"948\">Whether you're exploring career options, preparing for recruiting season, or simply looking to expand your network, this is a great opportunity to learn, ask questions, and connect with professionals who were once in your position.</p>\r\n<p data-start=\"950\" data-end=\"1038\">\ud83d\udcc5<strong> February 24, 2026</strong><br data-start=\"970\" data-end=\"973\" />\u23f0 <strong>6:00 PM &ndash; 8:00 PM</strong><br data-start=\"992\" data-end=\"995\" />\ud83d\udccd <strong>Philip J. Cohen Theatre, Student Union</strong></p>\r\n<p data-start=\"1040\" data-end=\"1201\" data-is-last-node=\"\" data-is-only-node=\"\">Bring a friend, come ready with your questions, and don&rsquo;t miss this chance to grow your network and gain valuable career insight. We can&rsquo;t wait to see you there!</p>",
+        "location": "Philip J. Cohen Theatre, Student Union",
+        "startsOn": "2026-02-25T02:00:00+00:00",
+        "endsOn": "2026-02-25T04:00:00+00:00",
+        "imagePath": "a58b5057-60d2-4644-bf1f-c4cef257377e7a825341-4b8a-40f2-ae7d-bf6ae0ad8d27.png",
+        "theme": "Social",
+        "categoryIds": [
+            "2165",
+            "2167",
+            "2168"
+        ],
+        "categoryNames": [
+            "General Meeting",
+            "Social",
+            "Recruitment"
+        ],
+        "benefitNames": [],
+        "visibility": "Public",
+        "status": "Approved",
+        "latitude": null,
+        "longitude": null,
+        "recScore": null,
+        "rsvpTotal": 1,
+        "@search.score": 99.56489
+    }
+]
