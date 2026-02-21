@@ -28,16 +28,18 @@ export default function App() {
     longitudeDelta: 0.015,
   };
 
-  // ==========================================
-  // JOB 1: SUPABASE & LOCATION PERMISSIONS
-  // ==========================================
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       setLocationPermission(status === 'granted');
 
       // Fetch all existing hot spots from Supabase when the app opens
-      const { data, error } = await supabase.from('hotspots').select('*');
+      const twentyMinsAgoISO = new Date(Date.now() - 20 * 60 * 1000).toISOString();
+      const { data, error } = await supabase
+          .from('hotspots')
+          .select('*')
+          .gte('timestamp', twentyMinsAgoISO);
       if (data) setHotSpots(data);
     })();
 
@@ -52,23 +54,24 @@ export default function App() {
     return () => supabase.removeChannel(subscription);
   }, []);
 
-  // ==========================================
-  // JOB 2: THE 20-MINUTE RADAR SWEEPER
-  // ==========================================
+//second UseEffect
+
+  // JOB 2:  1-MINUTE
+
   useEffect(() => {
     const sweepRadar = setInterval(() => {
-      const twentyMinsAgo = new Date(Date.now() - 20 * 60 * 1000);
+      // Temporarily set to 1 minute for testing (1 * 60 * 1000)
+      const oneMinAgo = new Date(Date.now() - 1 * 60 * 1000);
 
       setHotSpots(currentSpots =>
           currentSpots.filter(spot => {
-            // Fallback just in case an old "04:32 PM" string is still in the database
             if (!spot.timestamp || !spot.timestamp.includes('T')) return false;
 
             const pinTime = new Date(spot.timestamp);
-            return pinTime > twentyMinsAgo; // Keep only if newer than 20 mins
+            return pinTime > oneMinAgo;
           })
       );
-    }, 60000); // Runs every 60 seconds
+    }, 10000); // Wakes up every 10 seconds now
 
     return () => clearInterval(sweepRadar);
   }, []);
