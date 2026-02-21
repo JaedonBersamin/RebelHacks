@@ -602,7 +602,6 @@ export default function App() {
                 >
                   <View style={hotspotCallout.container}>
                     <View style={hotspotCallout.header}>
-                      <Text style={hotspotCallout.emoji}>⚠️</Text>
                       <Text style={hotspotCallout.name} numberOfLines={1}>
                         {spot.name || "Hot Spot"}
                       </Text>
