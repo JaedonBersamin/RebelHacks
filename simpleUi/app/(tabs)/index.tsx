@@ -24,8 +24,8 @@ import Svg, { Circle, Defs, RadialGradient, Stop } from "react-native-svg";
 import eventData from "./map_ready_events.json";
 
 const supabase = createClient(
-  process.env.EXPO_PUBLIC_SUPABASE_URL!,
-  process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.EXPO_PUBLIC_SUPABASE_URL!,
+    process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY!,
 );
 
 const { width, height } = Dimensions.get("window");
@@ -34,10 +34,10 @@ const { width, height } = Dimensions.get("window");
 // EVENT DETAIL FULL SCREEN
 
 const EventDetail = ({
-  item,
-  onClose,
-  onViewMap,
-}: {
+                       item,
+                       onClose,
+                       onViewMap,
+                     }: {
   item: any;
   onClose: () => void;
   onViewMap: () => void;
@@ -46,85 +46,85 @@ const EventDetail = ({
   const time = item.time?.split(" at ")[1] || item.time || "";
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
-        {/* Hero Image */}
-        <View style={detail.imageContainer}>
-          {item.imageUrl ? (
-            <Image
-              source={{ uri: item.imageUrl }}
-              style={detail.heroImage}
-              resizeMode="cover"
-            />
-          ) : (
-            <View style={detail.heroPlaceholder}>
-              <Text style={{ fontSize: 64 }}>🎉</Text>
-            </View>
-          )}
-          <View style={detail.imageOverlay} />
-          <TouchableOpacity style={detail.backBtn} onPress={onClose}>
-            <Text style={detail.backBtnText}>←</Text>
-          </TouchableOpacity>
-          <View style={detail.heroBadge}>
-            <Text style={detail.heroBadgeText}>
-              {item.category || item.coolFactor || "Event"}
-            </Text>
-          </View>
-        </View>
-
-        {/* Content */}
-        <View style={detail.content}>
-          <Text style={detail.title}>{item.eventName || item.name}</Text>
-
-          {/* Date + Time pills */}
-          <View style={detail.pillRow}>
-            <View style={detail.pill}>
-              <Text style={detail.pillIcon}>📅</Text>
-              <Text style={detail.pillText}>{date}</Text>
-            </View>
-            <View style={detail.pill}>
-              <Text style={detail.pillIcon}>🕐</Text>
-              <Text style={detail.pillText}>{time}</Text>
-            </View>
-          </View>
-
-          {/* Location */}
-          {item.locationName && (
-            <View style={detail.locationRow}>
-              <Text style={detail.pillIcon}>📍</Text>
-              <Text style={detail.locationText}>{item.locationName}</Text>
-            </View>
-          )}
-
-          <View style={detail.divider} />
-
-          {/* Highlight */}
-          {item.coolFactor && (
-            <View style={detail.highlight}>
-              <Text style={detail.highlightIcon}>⭐</Text>
-              <Text style={detail.highlightText}>{item.coolFactor}</Text>
-            </View>
-          )}
-
-          {/* Description */}
-          {item.description && (
-            <View style={detail.section}>
-              <Text style={detail.sectionTitle}>About this event</Text>
-              <Text style={detail.description}>{item.description}</Text>
-            </View>
-          )}
-
-          {/* Map button */}
-          {(item.showOnMap || item.latitude) && (
-            <TouchableOpacity style={detail.mapButton} onPress={onViewMap}>
-              <Text style={detail.mapButtonText}>View on Map</Text>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+        <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+          {/* Hero Image */}
+          <View style={detail.imageContainer}>
+            {item.imageUrl ? (
+                <Image
+                    source={{ uri: item.imageUrl }}
+                    style={detail.heroImage}
+                    resizeMode="cover"
+                />
+            ) : (
+                <View style={detail.heroPlaceholder}>
+                  <Text style={{ fontSize: 64 }}>🎉</Text>
+                </View>
+            )}
+            <View style={detail.imageOverlay} />
+            <TouchableOpacity style={detail.backBtn} onPress={onClose}>
+              <Text style={detail.backBtnText}>←</Text>
             </TouchableOpacity>
-          )}
+            <View style={detail.heroBadge}>
+              <Text style={detail.heroBadgeText}>
+                {item.category || item.coolFactor || "Event"}
+              </Text>
+            </View>
+          </View>
 
-          <View style={{ height: 40 }} />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+          {/* Content */}
+          <View style={detail.content}>
+            <Text style={detail.title}>{item.eventName || item.name}</Text>
+
+            {/* Date + Time pills */}
+            <View style={detail.pillRow}>
+              <View style={detail.pill}>
+                <Text style={detail.pillIcon}>📅</Text>
+                <Text style={detail.pillText}>{date}</Text>
+              </View>
+              <View style={detail.pill}>
+                <Text style={detail.pillIcon}>🕐</Text>
+                <Text style={detail.pillText}>{time}</Text>
+              </View>
+            </View>
+
+            {/* Location */}
+            {item.locationName && (
+                <View style={detail.locationRow}>
+                  <Text style={detail.pillIcon}>📍</Text>
+                  <Text style={detail.locationText}>{item.locationName}</Text>
+                </View>
+            )}
+
+            <View style={detail.divider} />
+
+            {/* Highlight */}
+            {item.coolFactor && (
+                <View style={detail.highlight}>
+                  <Text style={detail.highlightIcon}>⭐</Text>
+                  <Text style={detail.highlightText}>{item.coolFactor}</Text>
+                </View>
+            )}
+
+            {/* Description */}
+            {item.description && (
+                <View style={detail.section}>
+                  <Text style={detail.sectionTitle}>About this event</Text>
+                  <Text style={detail.description}>{item.description}</Text>
+                </View>
+            )}
+
+            {/* Map button */}
+            {(item.showOnMap || item.latitude) && (
+                <TouchableOpacity style={detail.mapButton} onPress={onViewMap}>
+                  <Text style={detail.mapButtonText}>View on Map</Text>
+                </TouchableOpacity>
+            )}
+
+            <View style={{ height: 40 }} />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
   );
 };
 
@@ -132,149 +132,150 @@ const EventDetail = ({
 // EVENT CARD COMPONENT
 
 const EventCard = ({
-  item,
-  onPress,
-  onViewMap,
-}: {
+                     item,
+                     onPress,
+                     onViewMap,
+                   }: {
   item: any;
   onPress: () => void;
   onViewMap: () => void;
 }) => (
-  <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.92}>
-    <View style={styles.cardInner}>
-      {/* Image */}
-      <View style={styles.cardImageContainer}>
-        {item.imageUrl ? (
-          <Image
-            source={{ uri: item.imageUrl }}
-            style={styles.cardImage}
-            resizeMode="cover"
-          />
-        ) : (
-          <View style={styles.cardImagePlaceholder} />
-        )}
-        <View style={styles.categoryBadge}>
-          <Text style={styles.categoryText}>
-            {item.category || item.coolFactor || "Event"}
-          </Text>
-        </View>
-      </View>
-
-      {/* Details */}
-      <View style={styles.cardBody}>
-        <Text style={styles.cardTitle}>{item.eventName || item.name}</Text>
-
-        <View style={styles.cardMetaRow}>
-          <View style={styles.cardMeta}>
-            <Text style={styles.metaIcon}>📅</Text>
-            <Text style={styles.metaText}>
-              {item.time?.split(" at ")[0] || ""}
-            </Text>
-          </View>
-          <View style={styles.cardMeta}>
-            <Text style={styles.metaIcon}>🕐</Text>
-            <Text style={styles.metaText}>
-              {item.time?.split(" at ")[1] || item.time}
+    <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.92}>
+      <View style={styles.cardInner}>
+        {/* Image */}
+        <View style={styles.cardImageContainer}>
+          {item.imageUrl ? (
+              <Image
+                  source={{ uri: item.imageUrl }}
+                  style={styles.cardImage}
+                  resizeMode="cover"
+              />
+          ) : (
+              <View style={styles.cardImagePlaceholder} />
+          )}
+          <View style={styles.categoryBadge}>
+            <Text style={styles.categoryText}>
+              {item.category || item.coolFactor || "Event"}
             </Text>
           </View>
         </View>
 
-        {item.locationName && (
-          <View style={styles.cardMeta}>
-            <Text style={styles.metaIcon}>📍</Text>
-            <Text style={styles.metaText}>{item.locationName}</Text>
-          </View>
-        )}
+        {/* Details */}
+        <View style={styles.cardBody}>
+          <Text style={styles.cardTitle}>{item.eventName || item.name}</Text>
 
-        {(item.showOnMap || item.latitude) && (
-          <TouchableOpacity
-            style={styles.viewMapButton}
-            onPress={(e) => {
-              e.stopPropagation?.();
-              onViewMap();
-            }}
-          >
-            <Text style={styles.viewMapText}>View on Map</Text>
-          </TouchableOpacity>
-        )}
+          <View style={styles.cardMetaRow}>
+            <View style={styles.cardMeta}>
+              <Text style={styles.metaIcon}>📅</Text>
+              <Text style={styles.metaText}>
+                {item.time?.split(" at ")[0] || ""}
+              </Text>
+            </View>
+            <View style={styles.cardMeta}>
+              <Text style={styles.metaIcon}>🕐</Text>
+              <Text style={styles.metaText}>
+                {item.time?.split(" at ")[1] || item.time}
+              </Text>
+            </View>
+          </View>
+
+          {item.locationName && (
+              <View style={styles.cardMeta}>
+                <Text style={styles.metaIcon}>📍</Text>
+                <Text style={styles.metaText}>{item.locationName}</Text>
+              </View>
+          )}
+
+          {(item.showOnMap || item.latitude) && (
+              <TouchableOpacity
+                  style={styles.viewMapButton}
+                  onPress={(e) => {
+                    e.stopPropagation?.();
+                    onViewMap();
+                  }}
+              >
+                <Text style={styles.viewMapText}>View on Map</Text>
+              </TouchableOpacity>
+          )}
+        </View>
       </View>
-    </View>
-  </TouchableOpacity>
+    </TouchableOpacity>
 );
 
 // ─────────────────────────────────────────
 // HOTSPOT NAME MODAL
 // ─────────────────────────────────────────
 const HotspotModal = ({
-  visible,
-  label,
-  editing,
-  isLoading,
-  onChangeLabel,
-  onSubmit,
-  onCancel,
-}: {
+                        visible,
+                        label,
+                        editing,
+                        isLoading,
+                        onChangeLabel,
+                        onSubmit,
+                        onCancel,
+                      }: {
   visible: boolean;
-  name: string;
+  label: string;
   editing: boolean;
   isLoading: boolean;
   onChangeLabel: (text: string) => void;
   onSubmit: () => void;
   onCancel: () => void;
 }) => (
-  <Modal
-    visible={visible}
-    transparent
-    animationType="fade"
-    onRequestClose={onCancel}
-  >
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={hotspotModal.overlay}
+    <Modal
+        visible={visible}
+        transparent
+        animationType="fade"
+        onRequestClose={onCancel}
     >
-      <View style={hotspotModal.card}>
-        <Text style={hotspotModal.title}>
-          {editing ? "Edit Marker Name" : "Name Your Hotspot"}
-        </Text>
-        <Text style={hotspotModal.subtitle}>
-          {editing
-            ? "Update the name others will see on this marker."
-            : "Give this marker a name so others know what to look out for."}
-        </Text>
-        <TextInput
-          style={hotspotModal.input}
-          placeholder="e.g. Solicitors near SU, Crowd at Rec..."
-          placeholderTextColor="#9CA3AF"
-          value={label}
-          onChangeText={onChangeLabel}
-          maxLength={40}
-          autoFocus
-        />
-        <View style={hotspotModal.btnRow}>
-          <TouchableOpacity style={hotspotModal.cancelBtn} onPress={onCancel}>
-            <Text style={hotspotModal.cancelText}>Cancel</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={hotspotModal.submitBtn}
-            onPress={onSubmit}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <Text style={hotspotModal.submitText}>
-                {editing ? "Save" : "Drop Pin"}
-              </Text>
-            )}
-          </TouchableOpacity>
+      <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={hotspotModal.overlay}
+      >
+        <View style={hotspotModal.card}>
+          <Text style={hotspotModal.title}>
+            {editing ? "Edit Marker Name" : "Name Your Hotspot"}
+          </Text>
+          <Text style={hotspotModal.subtitle}>
+            {editing
+                ? "Update the name others will see on this marker."
+                : "Give this marker a name so others know what to look out for."}
+          </Text>
+          <TextInput
+              style={hotspotModal.input}
+              placeholder="e.g. Solicitors near SU, Crowd at Rec..."
+              placeholderTextColor="#9CA3AF"
+              value={label}
+              onChangeText={onChangeLabel}
+              maxLength={40}
+              autoFocus
+          />
+          <View style={hotspotModal.btnRow}>
+            <TouchableOpacity style={hotspotModal.cancelBtn} onPress={onCancel}>
+              <Text style={hotspotModal.cancelText}>Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={hotspotModal.submitBtn}
+                onPress={onSubmit}
+                disabled={isLoading}
+            >
+              {isLoading ? (
+                  <ActivityIndicator color="#fff" />
+              ) : (
+                  <Text style={hotspotModal.submitText}>
+                    {editing ? "Save" : "Drop Pin"}
+                  </Text>
+              )}
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </KeyboardAvoidingView>
-  </Modal>
+      </KeyboardAvoidingView>
+    </Modal>
 );
 
 // ─────────────────────────────────────────
 // MAIN APP
+// ─────────────────────────────────────────
 
 export default function App() {
   const [locationPermission, setLocationPermission] = useState(null);
@@ -289,20 +290,17 @@ export default function App() {
   const [editingHotspot, setEditingHotspot] = useState(false);
   const [pendingLocation, setPendingLocation] = useState(null);
 
-  const [isPromptVisible, setIsPromptVisible] = useState(false);
-  const [hotspotName, setHotspotName] = useState("");
-
   const liveEvents = eventData.events || [];
 
   const todayEvents = liveEvents.filter((event) => {
     if (!event.latitude || !event.longitude || !event.time) return false;
-    const eventDateStr = event.time.split(" at ")[0]; // e.g. "Feb 21"
+    const eventDateStr = event.time.split(" at ")[0];
     const eventDate = new Date(`${eventDateStr} ${new Date().getFullYear()}`);
     const today = new Date();
     return (
-      eventDate.getFullYear() === today.getFullYear() &&
-      eventDate.getMonth() === today.getMonth() &&
-      eventDate.getDate() === today.getDate()
+        eventDate.getFullYear() === today.getFullYear() &&
+        eventDate.getMonth() === today.getMonth() &&
+        eventDate.getDate() === today.getDate()
     );
   });
 
@@ -313,49 +311,71 @@ export default function App() {
     longitudeDelta: 0.015,
   };
 
+  // ── Fetch hotspots (used on mount and when map opens) ──────────────────────
+  const fetchHotspots = async () => {
+    const twentyMinsAgo = new Date(Date.now() - 20 * 60 * 1000).toISOString();
+    const { data } = await supabase
+        .from("hotspots")
+        .select("*")
+        .gte("timestamp", twentyMinsAgo);
+    if (data) setHotSpots(data);
+  };
+
+  // ── Initial setup ──────────────────────────────────────────────────────────
   useEffect(() => {
     (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
+      const { status } = await Location.requestForegroundPermissionsAsync();
       setLocationPermission(status === "granted");
-
-      const { data } = await supabase.from("hotspots").select("*");
-      if (data) setHotSpots(data);
+      await fetchHotspots();
     })();
 
     const subscription = supabase
-      .channel("public:hotspots")
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "hotspots" },
-        (payload) => {
-          setHotSpots((currentSpots) => [...currentSpots, payload.new]);
-        },
-      )
-      .subscribe();
+        .channel("public:hotspots")
+        .on(
+            "postgres_changes",
+            { event: "INSERT", schema: "public", table: "hotspots" },
+            (payload) => {
+              // Only add if it's not already in state (avoids duplicate from optimistic insert)
+              setHotSpots((currentSpots) => {
+                const alreadyExists = currentSpots.some(
+                    (s) => s.id === payload.new.id,
+                );
+                if (alreadyExists) return currentSpots;
+                return [...currentSpots, payload.new];
+              });
+            },
+        )
+        .subscribe();
 
     return () => supabase.removeChannel(subscription);
   }, []);
 
+  // ── Refresh hotspots every time the map is opened ─────────────────────────
+  useEffect(() => {
+    if (showMap) {
+      fetchHotspots();
+    }
+  }, [showMap]);
+
+  // ── Sweep expired pins every 10 s ─────────────────────────────────────────
   useEffect(() => {
     const sweepRadar = setInterval(() => {
       const twentyMinsAgo = new Date(Date.now() - 20 * 60 * 1000);
       setHotSpots((currentSpots) =>
-        currentSpots.filter((spot) => {
-          if (!spot.timestamp || !spot.timestamp.includes("T")) return false;
-          const pinTime = new Date(spot.timestamp);
-          return pinTime > twentyMinsAgo;
-        }),
+          currentSpots.filter((spot) => {
+            if (!spot.timestamp || !spot.timestamp.includes("T")) return false;
+            const pinTime = new Date(spot.timestamp);
+            return pinTime > twentyMinsAgo;
+          }),
       );
     }, 10000);
     return () => clearInterval(sweepRadar);
   }, []);
 
+  // ── Get location & open modal ──────────────────────────────────────────────
   const handleReportSolicitor = async () => {
     if (!locationPermission) {
-      Alert.alert(
-        "Permission Denied",
-        "We need your location to drop a pin!",
-      );
+      Alert.alert("Permission Denied", "We need your location to drop a pin!");
       return;
     }
     setIsReporting(true);
@@ -375,26 +395,50 @@ export default function App() {
     }
   };
 
+  // ── Submit new hotspot with optimistic UI ──────────────────────────────────
   const handleSubmitHotspot = async () => {
     if (!pendingLocation) return;
     setIsReporting(true);
+    setShowHotspotModal(false);
+
+    const tempId = `temp-${Date.now()}`;
+    const optimisticSpot = {
+      id: tempId,
+      latitude: pendingLocation.latitude,
+      longitude: pendingLocation.longitude,
+      timestamp: new Date().toISOString(),
+      name: hotspotLabel.trim() || "Hot Spot",
+      _isOptimistic: true,
+    };
+
+    // Show it on the map immediately
+    setHotSpots((spots) => [...spots, optimisticSpot]);
+    setMyHotspotId(tempId); // treat as "owner" straight away
+
     try {
       const newWarningPin = {
         latitude: pendingLocation.latitude,
         longitude: pendingLocation.longitude,
-        timestamp: new Date().toISOString(),
-        name: hotspotLabel.trim() || "Hot Spot",
+        timestamp: optimisticSpot.timestamp,
+        name: optimisticSpot.name,
       };
       const { data, error } = await supabase
-        .from("hotspots")
-        .insert([newWarningPin])
-        .select()
-        .single();
+          .from("hotspots")
+          .insert([newWarningPin])
+          .select()
+          .single();
       if (error) throw error;
+
+      // Swap temp entry for the real DB record
+      setHotSpots((spots) =>
+          spots.map((s) => (s.id === tempId ? { ...data, _isOptimistic: false } : s)),
+      );
       setMyHotspotId(data.id);
-      setShowHotspotModal(false);
       Alert.alert("Radar Updated", "Mark Successful!");
     } catch (error) {
+      // Roll back the optimistic marker on failure
+      setHotSpots((spots) => spots.filter((s) => s.id !== tempId));
+      setMyHotspotId(null);
       Alert.alert("Error", "Could not connect to the radar network.");
       console.log(error);
     } finally {
@@ -402,21 +446,22 @@ export default function App() {
     }
   };
 
+  // ── Edit existing hotspot ──────────────────────────────────────────────────
   const handleEditHotspot = async () => {
     if (!myHotspotId) return;
     setIsReporting(true);
     try {
       const { error } = await supabase
-        .from("hotspots")
-        .update({ name: hotspotLabel.trim() || "Hot Spot" })
-        .eq("id", myHotspotId);
+          .from("hotspots")
+          .update({ name: hotspotLabel.trim() || "Hot Spot" })
+          .eq("id", myHotspotId);
       if (error) throw error;
       setHotSpots((spots) =>
-        spots.map((s) =>
-          s.id === myHotspotId
-            ? { ...s, name: hotspotLabel.trim() || "Hot Spot" }
-            : s,
-        ),
+          spots.map((s) =>
+              s.id === myHotspotId
+                  ? { ...s, name: hotspotLabel.trim() || "Hot Spot" }
+                  : s,
+          ),
       );
       setShowHotspotModal(false);
     } catch (error) {
@@ -429,330 +474,339 @@ export default function App() {
 
   // ─────────────────────────────────────────
   // MAP VIEW
+  // ─────────────────────────────────────────
 
   if (showMap) {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <MapView
-          provider={PROVIDER_GOOGLE}
-          style={{ flex: 1 }}
-          initialRegion={
-            focusedEvent
-              ? {
-                  latitude: focusedEvent.latitude,
-                  longitude: focusedEvent.longitude,
-                  latitudeDelta: 0.005,
-                  longitudeDelta: 0.005,
-                }
-              : UNLV_REGION
-          }
-          showsUserLocation={locationPermission}
-          showsMyLocationButton={true}
-        >
-          {todayEvents.map((event, index) => (
-            <Marker
-              key={`today-${index}`}
-              coordinate={{
-                latitude: event.latitude,
-                longitude: event.longitude,
-              }}
-              pinColor="#CC0000"
-            >
-              <Callout tooltip>
-                <View style={mapCallout.container}>
-                  {event.imageUrl ? (
-                    <Image
-                      source={{ uri: event.imageUrl }}
-                      style={mapCallout.image}
-                      resizeMode="cover"
-                    />
-                  ) : (
-                    <View style={mapCallout.imagePlaceholder}>
-                      <Text style={{ fontSize: 28 }}>🎉</Text>
-                    </View>
-                  )}
-                  <View style={mapCallout.info}>
-                    <Text style={mapCallout.name} numberOfLines={1}>
-                      {event.eventName || event.name}
-                    </Text>
-                    {event.locationName && (
-                      <View style={mapCallout.locationRow}>
-                        <Text style={mapCallout.locationIcon}>📍</Text>
-                        <Text style={mapCallout.locationText} numberOfLines={1}>
-                          {event.locationName}
-                        </Text>
-                      </View>
-                    )}
-                  </View>
-                </View>
-              </Callout>
-            </Marker>
-          ))}
-
-          {focusedEvent && focusedEvent.latitude && focusedEvent.longitude && (
-            <Marker
-              coordinate={{
-                latitude: focusedEvent.latitude,
-                longitude: focusedEvent.longitude,
-              }}
-              pinColor="#CC0000"
-            >
-              <Callout tooltip>
-                <View style={mapCallout.container}>
-                  {focusedEvent.imageUrl ? (
-                    <Image
-                      source={{ uri: focusedEvent.imageUrl }}
-                      style={mapCallout.image}
-                      resizeMode="cover"
-                    />
-                  ) : (
-                    <View style={mapCallout.imagePlaceholder}>
-                      <Text style={{ fontSize: 28 }}>🎉</Text>
-                    </View>
-                  )}
-                  <View style={mapCallout.info}>
-                    <Text style={mapCallout.name} numberOfLines={1}>
-                      {focusedEvent.eventName || focusedEvent.name}
-                    </Text>
-                    {focusedEvent.locationName && (
-                      <View style={mapCallout.locationRow}>
-                        <Text style={mapCallout.locationIcon}>📍</Text>
-                        <Text style={mapCallout.locationText} numberOfLines={1}>
-                          {focusedEvent.locationName}
-                        </Text>
-                      </View>
-                    )}
-                  </View>
-                </View>
-              </Callout>
-            </Marker>
-          )}
-
-          {hotSpots.map((spot, index) => {
-            let displayTime = "Recently";
-            if (spot.timestamp?.includes("T")) {
-              displayTime = new Date(spot.timestamp).toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-              });
-            }
-            const isOwner = spot.id === myHotspotId;
-            return (
-              <Marker
-                key={`hotspot-${spot.id || index}`}
-                coordinate={{
-                  latitude: spot.latitude,
-                  longitude: spot.longitude,
-                }}
-              >
-                <View
-                  style={{
-                    width: 60,
-                    height: 60,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Svg
-                    height="60"
-                    width="60"
-                    viewBox="0 0 60 60"
-                    style={{ position: "absolute" }}
-                  >
-                    <Defs>
-                      <RadialGradient
-                        id="grad"
-                        cx="50%"
-                        cy="50%"
-                        rx="50%"
-                        ry="50%"
-                        fx="50%"
-                        fy="50%"
-                      >
-                        <Stop
-                          offset="0%"
-                          stopColor="#EF4444"
-                          stopOpacity="0.8"
-                        />
-                        <Stop
-                          offset="40%"
-                          stopColor="#EF4444"
-                          stopOpacity="0.4"
-                        />
-                        <Stop
-                          offset="100%"
-                          stopColor="#EF4444"
-                          stopOpacity="0"
-                        />
-                      </RadialGradient>
-                    </Defs>
-                    <Circle cx="30" cy="30" r="30" fill="url(#grad)" />
-                  </Svg>
-                  <View style={styles.snapMapInnerCircle} />
-                </View>
-                <Callout
-                  tooltip
-                  onPress={() => {
-                    if (isOwner) {
-                      setHotspotLabel(spot.name || "Hot Spot");
-                      setEditingHotspot(true);
-                      setShowHotspotModal(true);
+        <SafeAreaView style={{ flex: 1 }}>
+          <MapView
+              provider={PROVIDER_GOOGLE}
+              style={{ flex: 1 }}
+              initialRegion={
+                focusedEvent
+                    ? {
+                      latitude: focusedEvent.latitude,
+                      longitude: focusedEvent.longitude,
+                      latitudeDelta: 0.005,
+                      longitudeDelta: 0.005,
                     }
-                  }}
+                    : UNLV_REGION
+              }
+              showsUserLocation={locationPermission}
+              showsMyLocationButton={true}
+          >
+            {todayEvents.map((event, index) => (
+                <Marker
+                    key={`today-${index}`}
+                    coordinate={{
+                      latitude: event.latitude,
+                      longitude: event.longitude,
+                    }}
+                    pinColor="#CC0000"
                 >
-                  <View style={hotspotCallout.container}>
-                    <View style={hotspotCallout.header}>
-                      <Text style={hotspotCallout.emoji}>⚠️</Text>
-                      <Text style={hotspotCallout.name} numberOfLines={1}>
-                        {spot.name || "Hot Spot"}
-                      </Text>
-                    </View>
-                    <Text style={hotspotCallout.time}>
-                      Reported at {displayTime}
-                    </Text>
-                    {isOwner && (
-                      <View style={hotspotCallout.editBtn}>
-                        <Text style={hotspotCallout.editBtnText}>
-                          ✏️ Edit Name
+                  <Callout tooltip>
+                    <View style={mapCallout.container}>
+                      {event.imageUrl ? (
+                          <Image
+                              source={{ uri: event.imageUrl }}
+                              style={mapCallout.image}
+                              resizeMode="cover"
+                          />
+                      ) : (
+                          <View style={mapCallout.imagePlaceholder}>
+                            <Text style={{ fontSize: 28 }}>🎉</Text>
+                          </View>
+                      )}
+                      <View style={mapCallout.info}>
+                        <Text style={mapCallout.name} numberOfLines={1}>
+                          {event.eventName || event.name}
                         </Text>
+                        {event.locationName && (
+                            <View style={mapCallout.locationRow}>
+                              <Text style={mapCallout.locationIcon}>📍</Text>
+                              <Text style={mapCallout.locationText} numberOfLines={1}>
+                                {event.locationName}
+                              </Text>
+                            </View>
+                        )}
                       </View>
-                    )}
-                  </View>
-                </Callout>
-              </Marker>
-            );
-          })}
-        </MapView>
+                    </View>
+                  </Callout>
+                </Marker>
+            ))}
 
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => {
-            setShowMap(false);
-            setFocusedEvent(null);
-          }}
-        >
-          <Text style={styles.backButtonText}>← Back</Text>
-        </TouchableOpacity>
+            {focusedEvent && focusedEvent.latitude && focusedEvent.longitude && (
+                <Marker
+                    coordinate={{
+                      latitude: focusedEvent.latitude,
+                      longitude: focusedEvent.longitude,
+                    }}
+                    pinColor="#CC0000"
+                >
+                  <Callout tooltip>
+                    <View style={mapCallout.container}>
+                      {focusedEvent.imageUrl ? (
+                          <Image
+                              source={{ uri: focusedEvent.imageUrl }}
+                              style={mapCallout.image}
+                              resizeMode="cover"
+                          />
+                      ) : (
+                          <View style={mapCallout.imagePlaceholder}>
+                            <Text style={{ fontSize: 28 }}>🎉</Text>
+                          </View>
+                      )}
+                      <View style={mapCallout.info}>
+                        <Text style={mapCallout.name} numberOfLines={1}>
+                          {focusedEvent.eventName || focusedEvent.name}
+                        </Text>
+                        {focusedEvent.locationName && (
+                            <View style={mapCallout.locationRow}>
+                              <Text style={mapCallout.locationIcon}>📍</Text>
+                              <Text style={mapCallout.locationText} numberOfLines={1}>
+                                {focusedEvent.locationName}
+                              </Text>
+                            </View>
+                        )}
+                      </View>
+                    </View>
+                  </Callout>
+                </Marker>
+            )}
 
-        <TouchableOpacity
-          style={styles.reportButton}
-          onPress={handleReportSolicitor}
-          disabled={isReporting}
-        >
-          {isReporting ? (
-            <ActivityIndicator color="#FFFFFF" />
-          ) : (
-            <Text style={styles.reportButtonText}>Mark Hotspot</Text>
-          )}
-        </TouchableOpacity>
+            {hotSpots.map((spot, index) => {
+              let displayTime = "Recently";
+              if (spot.timestamp?.includes("T")) {
+                displayTime = new Date(spot.timestamp).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                });
+              }
+              const isOwner = spot.id === myHotspotId;
+              return (
+                  <Marker
+                      key={`hotspot-${spot.id || index}`}
+                      coordinate={{
+                        latitude: spot.latitude,
+                        longitude: spot.longitude,
+                      }}
+                  >
+                    <View
+                        style={{
+                          width: 60,
+                          height: 60,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                    >
+                      <Svg
+                          height="60"
+                          width="60"
+                          viewBox="0 0 60 60"
+                          style={{ position: "absolute" }}
+                      >
+                        <Defs>
+                          <RadialGradient
+                              id="grad"
+                              cx="50%"
+                              cy="50%"
+                              rx="50%"
+                              ry="50%"
+                              fx="50%"
+                              fy="50%"
+                          >
+                            <Stop
+                                offset="0%"
+                                stopColor={spot._isOptimistic ? "#F59E0B" : "#EF4444"}
+                                stopOpacity="0.8"
+                            />
+                            <Stop
+                                offset="40%"
+                                stopColor={spot._isOptimistic ? "#F59E0B" : "#EF4444"}
+                                stopOpacity="0.4"
+                            />
+                            <Stop
+                                offset="100%"
+                                stopColor={spot._isOptimistic ? "#F59E0B" : "#EF4444"}
+                                stopOpacity="0"
+                            />
+                          </RadialGradient>
+                        </Defs>
+                        <Circle cx="30" cy="30" r="30" fill="url(#grad)" />
+                      </Svg>
+                      <View
+                          style={[
+                            styles.snapMapInnerCircle,
+                            spot._isOptimistic && styles.snapMapInnerCircleOptimistic,
+                          ]}
+                      />
+                    </View>
+                    <Callout
+                        tooltip
+                        onPress={() => {
+                          if (isOwner && !spot._isOptimistic) {
+                            setHotspotLabel(spot.name || "Hot Spot");
+                            setEditingHotspot(true);
+                            setShowHotspotModal(true);
+                          }
+                        }}
+                    >
+                      <View style={hotspotCallout.container}>
+                        <View style={hotspotCallout.header}>
 
-        <HotspotModal
-          visible={showHotspotModal}
-          label={hotspotLabel}
-          editing={editingHotspot}
-          isLoading={isReporting}
-          onChangeLabel={setHotspotLabel}
-          onSubmit={editingHotspot ? handleEditHotspot : handleSubmitHotspot}
-          onCancel={() => setShowHotspotModal(false)}
-        />
-      </SafeAreaView>
+                          <Text style={hotspotCallout.name} numberOfLines={1}>
+                            {spot.name || "Hot Spot"}
+                          </Text>
+                        </View>
+                        <Text style={hotspotCallout.time}>
+                          {spot._isOptimistic
+                              ? "Syncing to radar..."
+                              : `Reported at ${displayTime}`}
+                        </Text>
+                        {isOwner && !spot._isOptimistic && (
+                            <View style={hotspotCallout.editBtn}>
+                              <Text style={hotspotCallout.editBtnText}>
+                                ✏️ Edit Name
+                              </Text>
+                            </View>
+                        )}
+                      </View>
+                    </Callout>
+                  </Marker>
+              );
+            })}
+          </MapView>
+
+          <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => {
+                setShowMap(false);
+                setFocusedEvent(null);
+              }}
+          >
+            <Text style={styles.backButtonText}>← Back</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+              style={styles.reportButton}
+              onPress={handleReportSolicitor}
+              disabled={isReporting}
+          >
+            {isReporting ? (
+                <ActivityIndicator color="#FFFFFF" />
+            ) : (
+                <Text style={styles.reportButtonText}>Mark Hotspot</Text>
+            )}
+          </TouchableOpacity>
+
+          <HotspotModal
+              visible={showHotspotModal}
+              label={hotspotLabel}
+              editing={editingHotspot}
+              isLoading={isReporting}
+              onChangeLabel={setHotspotLabel}
+              onSubmit={editingHotspot ? handleEditHotspot : handleSubmitHotspot}
+              onCancel={() => setShowHotspotModal(false)}
+          />
+        </SafeAreaView>
     );
   }
 
-
+  // ─────────────────────────────────────────
   // HOME VIEW
+  // ─────────────────────────────────────────
 
   return (
-    <>
-      <SafeAreaView style={styles.container}>
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>Rebel Radar</Text>
-          <Text style={styles.headerSubtitle}>Discover events near you</Text>
-        </View>
+      <>
+        <SafeAreaView style={styles.container}>
+          {/* Header */}
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>Rebel Radar</Text>
+            <Text style={styles.headerSubtitle}>Discover events near you</Text>
+          </View>
 
-        {/* Events List */}
-        <FlatList
-          data={liveEvents}
-          keyExtractor={(item, index) =>
-            `${item.eventName || item.name}-${index}`
-          }
-          contentContainerStyle={styles.listContainer}
-          showsVerticalScrollIndicator={false}
-          ListHeaderComponent={
-            <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Upcoming Events</Text>
-              <Text style={styles.sectionSubtitle}>
-                {liveEvents.length} events happening soon
-              </Text>
-            </View>
-          }
-          renderItem={({ item }) => (
-            <EventCard
-              item={item}
-              onPress={() => setSelectedEvent(item)}
-              onViewMap={() => {
-                setFocusedEvent(item);
-                setShowMap(true);
-              }}
-            />
-          )}
-        />
-
-        {/* Fixed Bottom Bar */}
-        <View style={styles.bottomBar}>
-          <TouchableOpacity
-            style={styles.viewAllButton}
-            onPress={() => {
-              setFocusedEvent(null);
-              setShowMap(true);
-            }}
-          >
-            <Text style={styles.viewAllText}>View Map</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.hotspotButton}
-            onPress={handleReportSolicitor}
-            disabled={isReporting}
-          >
-            {isReporting ? (
-              <ActivityIndicator color="#FFFFFF" size="small" />
-            ) : (
-              <Text style={styles.hotspotIcon}>📡</Text>
-            )}
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-
-      <Modal
-        visible={!!selectedEvent}
-        animationType="slide"
-        presentationStyle="pageSheet"
-        onRequestClose={() => setSelectedEvent(null)}
-      >
-        {selectedEvent && (
-          <EventDetail
-            item={selectedEvent}
-            onClose={() => setSelectedEvent(null)}
-            onViewMap={() => {
-              setFocusedEvent(selectedEvent);
-              setSelectedEvent(null);
-              setShowMap(true);
-            }}
+          {/* Events List */}
+          <FlatList
+              data={liveEvents}
+              keyExtractor={(item, index) =>
+                  `${item.eventName || item.name}-${index}`
+              }
+              contentContainerStyle={styles.listContainer}
+              showsVerticalScrollIndicator={false}
+              ListHeaderComponent={
+                <View style={styles.sectionHeader}>
+                  <Text style={styles.sectionTitle}>Upcoming Events</Text>
+                  <Text style={styles.sectionSubtitle}>
+                    {liveEvents.length} events happening soon
+                  </Text>
+                </View>
+              }
+              renderItem={({ item }) => (
+                  <EventCard
+                      item={item}
+                      onPress={() => setSelectedEvent(item)}
+                      onViewMap={() => {
+                        setFocusedEvent(item);
+                        setShowMap(true);
+                      }}
+                  />
+              )}
           />
-        )}
-      </Modal>
 
-      <HotspotModal
-        visible={showHotspotModal}
-        label={hotspotLabel}
-        editing={editingHotspot}
-        isLoading={isReporting}
-        onChangeLabel={setHotspotLabel}
-        onSubmit={editingHotspot ? handleEditHotspot : handleSubmitHotspot}
-        onCancel={() => setShowHotspotModal(false)}
-      />
-    </>
+          {/* Fixed Bottom Bar */}
+          <View style={styles.bottomBar}>
+            <TouchableOpacity
+                style={styles.viewAllButton}
+                onPress={() => {
+                  setFocusedEvent(null);
+                  setShowMap(true);
+                }}
+            >
+              <Text style={styles.viewAllText}>View Map</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.hotspotButton}
+                onPress={handleReportSolicitor}
+                disabled={isReporting}
+            >
+              {isReporting ? (
+                  <ActivityIndicator color="#FFFFFF" size="small" />
+              ) : (
+                  <Text style={styles.hotspotIcon}>📡</Text>
+              )}
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+
+        <Modal
+            visible={!!selectedEvent}
+            animationType="slide"
+            presentationStyle="pageSheet"
+            onRequestClose={() => setSelectedEvent(null)}
+        >
+          {selectedEvent && (
+              <EventDetail
+                  item={selectedEvent}
+                  onClose={() => setSelectedEvent(null)}
+                  onViewMap={() => {
+                    setFocusedEvent(selectedEvent);
+                    setSelectedEvent(null);
+                    setShowMap(true);
+                  }}
+              />
+          )}
+        </Modal>
+
+        <HotspotModal
+            visible={showHotspotModal}
+            label={hotspotLabel}
+            editing={editingHotspot}
+            isLoading={isReporting}
+            onChangeLabel={setHotspotLabel}
+            onSubmit={editingHotspot ? handleEditHotspot : handleSubmitHotspot}
+            onCancel={() => setShowHotspotModal(false)}
+        />
+      </>
   );
 }
 
@@ -1173,6 +1227,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 4,
     elevation: 5,
+  },
+  snapMapInnerCircleOptimistic: {
+    backgroundColor: "#F59E0B",
   },
 });
 
